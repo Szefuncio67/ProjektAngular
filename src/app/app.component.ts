@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
@@ -6,11 +6,12 @@ import { AccountService } from './_services';
 import { User } from './_models';
 import { AlertComponent } from './_components/alert.component';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { MapComponent } from 'src/map/map.component';
 
 @Component({
     selector: 'app-root', templateUrl: 'app.component.html',
     standalone: true,
-    imports: [NgIf, RouterOutlet, RouterLink, RouterLinkActive, AlertComponent, GoogleMapsModule]
+    imports: [NgIf, RouterOutlet, RouterLink, RouterLinkActive, AlertComponent, GoogleMapsModule, MapComponent]
 })
 export class AppComponent {
     user?: User | null;
