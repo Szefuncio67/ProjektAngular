@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
+import { Component } from '@angular/core';
 
 import { User } from '@app/_models';
 import { AccountService } from '@app/_services';
@@ -8,21 +7,12 @@ import { AccountService } from '@app/_services';
     templateUrl: 'home.component.html',
     standalone: true
 })
-export class HomeComponent implements OnInit {
-    user: User | null;
+export class HomeComponent {
+    user: any;
 
     constructor(private accountService: AccountService) {
-        this.user = null; // or initialize with a default value
-    }
-    
-
-    ngOnInit() {
-        this.accountService.user.pipe(take(1)).subscribe(user => {
-            this.user = user;
-            console.log(this.user);
-            console.log(this.user?.Token);
-            console.log(this.user?.Nazwa);
-            console.log(this.user?.Haslo);
-        });
+        this.user = this.accountService.userValue;
+        console.log(this.user)
+        console.log(this.user?.nazwa)
     }
 }
