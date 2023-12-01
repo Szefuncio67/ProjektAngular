@@ -8,11 +8,11 @@ export function jwtInterceptor(request: HttpRequest<any>, next: HttpHandlerFn) {
     // add auth header with jwt if user is logged in and request is to the api url
     const accountService = inject(AccountService);
     const user = accountService.userValue;
-    const isLoggedIn = user?.token;
+    const isLoggedIn = user?.Token;
     const isApiUrl = request.url.startsWith(environment.apiUrl);
     if (isLoggedIn && isApiUrl) {
         request = request.clone({
-            setHeaders: { Authorization: `Bearer ${user.token}` }
+            setHeaders: { Authorization: `Bearer ${user.Token}` }
         });
     }
 

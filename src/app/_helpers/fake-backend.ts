@@ -39,7 +39,7 @@ export function fakeBackendInterceptor(request: HttpRequest<any>, next: HttpHand
         if (!user) return error('Username or password is incorrect');
         return ok({
             ...basicDetails(user),
-            token: 'fake-jwt-token'
+            Token: 'fake-jwt-token'
         })
     }
 
@@ -112,8 +112,8 @@ export function fakeBackendInterceptor(request: HttpRequest<any>, next: HttpHand
     }
 
     function basicDetails(user: any) {
-        const { id, username, firstName, lastName } = user;
-        return { id, username, firstName, lastName };
+        const { id, username, email, firstName, lastName } = user;
+        return { id, username, email, firstName, lastName };
     }
 
     function isLoggedIn() {
