@@ -6,7 +6,7 @@ import { AccountService } from './_services';
 import { User } from './_models';
 import { AlertComponent } from './_components/alert.component';
 import { GoogleMapsModule } from '@angular/google-maps'
-import { MapComponent } from 'src/map/map.component';
+import { MapComponent } from '@app/map/map.component';
 
 @Component({
     selector: 'app-root', templateUrl: 'app.component.html',

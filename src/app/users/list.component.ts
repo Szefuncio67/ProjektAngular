@@ -12,21 +12,19 @@ import { AccountService } from '@app/_services';
     imports: [RouterLink, NgFor, NgIf]
 })
 export class ListComponent implements OnInit {
-    users?: any[];
+    user: any;
 
     constructor(private accountService: AccountService) {}
 
     ngOnInit() {
-        this.accountService.getAll()
-            .pipe(first())
-            .subscribe(users => this.users = users);
+        this.user = this.accountService.userValue;
     }
 
     deleteUser(id: string) {
-        const user = this.users!.find(x => x.id === id);
+        const user = this.user;
         user.isDeleting = true;
         this.accountService.delete(id)
             .pipe(first())
-            .subscribe(() => this.users = this.users!.filter(x => x.id !== id));
+            .subscribe(() => this.user);
     }
 }

@@ -4,6 +4,7 @@ import { delay, materialize, dematerialize } from 'rxjs/operators';
 
 // array in local storage for registered users
 const usersKey = 'angular-tutorial-users';
+
 let users: any[] = JSON.parse(localStorage.getItem(usersKey)!) || [];
 
 export function fakeBackendInterceptor(request: HttpRequest<any>, next: HttpHandlerFn) {
@@ -112,8 +113,8 @@ export function fakeBackendInterceptor(request: HttpRequest<any>, next: HttpHand
     }
 
     function basicDetails(user: any) {
-        const { id, username, email, firstName, lastName } = user;
-        return { id, username, email, firstName, lastName };
+        const { id, username, email} = user;
+        return { id, username, email};
     }
 
     function isLoggedIn() {
