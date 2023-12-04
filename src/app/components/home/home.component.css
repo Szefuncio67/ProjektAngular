@@ -1,0 +1,8 @@
+.z1 {
+    float: left;
+}
+
+.z2 {
+    float: left;
+    margin-left: 10px; /* Opcjonalne odstępy między obiektami */
+}

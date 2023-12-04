@@ -17,6 +17,8 @@ import { MessageService } from 'primeng/api';
 import { MapComponent } from './map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DescriptionComponent } from './description/description.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +26,8 @@ import { CommonModule } from '@angular/common';
         LoginComponent,
         RegisterComponent,
         HomeComponent,
+        NavbarComponent,
+        DescriptionComponent,
     ],
     providers: [MessageService],
     bootstrap: [AppComponent],

@@ -1,0 +1,8 @@
+<div *ngFor="let point of points; let i = index">
+    <p>Marker {{i + 1}}: {{point.latitude}}, {{point.longitude}}
+      <button (click)="onMarkerClick(i)">Remove</button>
+    </p>
+  </div>
+  <div>
+    <button (click)="addAllPoints()">Dodaj Trase</button>
+  </div>

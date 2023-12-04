@@ -1,0 +1,33 @@
+/* Add this CSS to style the navigation bar */
+.navbar {
+    background-color: #343a40; /* Change this to your preferred background color */
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    color: #ffffff; /* Change this to your preferred text color */
+  }
+  
+  .nav-link:hover {
+    color: #007bff; /* Change this to your preferred text color on hover */
+  }
+  
+  .active {
+    font-weight: bold; /* Change this to your preferred font weight for active links */
+  }
+  
+  /* Add this CSS to style the "Sign out" button */
+  .p-button {
+    margin-left: 10px; /* Adjust the margin as needed */
+  }
+  
+  /* Add any other styling specific to your application */
+  

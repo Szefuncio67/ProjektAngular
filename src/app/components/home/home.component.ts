@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { MapService } from 'src/app/services/map.service';
+
 
 
 @Component({
@@ -9,11 +10,6 @@ import { Router } from '@angular/router';
  
 })
 export class HomeComponent {
-
-  constructor(private router: Router) { }
-
-  logOut() {
-    sessionStorage.clear();
-    this.router.navigate(['login']);
-  }
+  constructor(public mapService: MapService) {}
+  
 }
