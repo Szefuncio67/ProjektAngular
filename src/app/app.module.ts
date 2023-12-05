@@ -45,7 +45,7 @@ import { FormsModule } from '@angular/forms';
         GoogleMapsModule,
         MapComponent,
         CommonModule,
-        FormsModule
+        FormsModule,
     ]
 })
 export class AppModule { }

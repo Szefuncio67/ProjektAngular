@@ -1,6 +1,6 @@
 <div *ngFor="let point of points; let i = index" class="ngFor-container point-container">
   <p>
-    Nazwa Atrakcji: 
+    Adres:
     <input type="text" [(ngModel)]="point.name" (ngModelChange)="updateCoordinatesOnNameChange(i)" name="markerName{{i}}" placeholder="Marker Name" class="input-field">
 
     <p>
