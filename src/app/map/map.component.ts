@@ -37,8 +37,9 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     });
     this.mapService.mapComponentDrawRouteSubject.subscribe(() => {
       this.directionsRenderer.setMap(null);
-      this.points = [];
+      this.drawRoute();
   });
+  
   }
   ngOnDestroy() {
     // Zakończ subskrypcję w momencie zniszczenia komponentu
@@ -65,7 +66,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   }
 
   drawRoute() {
-    
+    console.log("został uruchomiony drawRoute")
     if (this.directionsRenderer) {
       this.directionsRenderer.setMap(null);
     }
@@ -75,49 +76,49 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     preserveViewport: true, // Dodaj tę opcję, aby zachować bieżący widok mapy
   });
     this.directionsRenderer.setMap(this.map);
+    if(this.mapService.points[0]){
+      const start = new google.maps.LatLng(this.mapService.points[0].latitude, this.mapService.points[0].longitude);
+      const end = new google.maps.LatLng(this.mapService.points[this.mapService.points.length - 1].latitude, this.mapService.points[this.mapService.points.length - 1].longitude);
+      const waypoint: google.maps.DirectionsWaypoint[] = [];
 
-    const start = new google.maps.LatLng(this.points[0].latitude, this.points[0].longitude);
-    const end = new google.maps.LatLng(this.points[this.points.length - 1].latitude, this.points[this.points.length - 1].longitude);
-    const waypoint: google.maps.DirectionsWaypoint[] = [];
-
-    for (let i = 1; i < this.points.length - 1; i++) {
-      waypoint.push({
-        location: new google.maps.LatLng(this.points[i].latitude, this.points[i].longitude),
-        stopover: true,
-      });
-    }
-
-    const request = {
-      origin: start,
-      waypoints: waypoint,
-      destination: end,
-      travelMode: google.maps.TravelMode.DRIVING
-    };
-
-    this.directionsService.route(request, (response: any, status: any) => {
-      if (status === 'OK') {
-        this.directionsRenderer.setDirections(response);
-      } else {
-        console.error('Error calculating route:', status);
-        this.points.splice(this.points.length-1, 1);
-        //this.markers.splice(this.points.length-1, 1);
-        this.mapService.points.splice(this.points.length, 1);
-        this.drawRoute();
+      for (let i = 1; i < this.mapService.points.length - 1; i++) {
+        waypoint.push({
+          location: new google.maps.LatLng(this.mapService.points[i].latitude, this.mapService.points[i].longitude),
+          stopover: true,
+        });
       }
-    });
+
+      const request = {
+        origin: start,
+        waypoints: waypoint,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+
+      this.directionsService.route(request, (response: any, status: any) => {
+        if (status === 'OK') {
+          this.directionsRenderer.setDirections(response);
+        } else {
+          console.error('Error calculating route:', status);
+          console.log(this.mapService.points);
+          //this.points.splice(this.points.length-1, 1);
+          this.markers.splice(this.points.length-1, 1);
+          this.mapService.points.splice(this.points.length-1, 1);
+          this.drawRoute();
+        }
+      });
+  }
   }
 
   onMapClick(event: any) {
-
-    this.points.push({
-      latitude: event.latLng.lat(),
-      longitude: event.latLng.lng(),
-    });
-    this.mapService.points.push({
-      latitude: event.latLng.lat(),
-      longitude: event.latLng.lng(),
-    });
-    this.drawRoute();
+    this.mapService.convertCoordinatesToAddress(event.latLng.lat(), event.latLng.lng())
+      .then((newPoint: Point) => {
+        this.mapService.points.push(newPoint);
+        this.drawRoute();
+      })
+      .catch((error: any) => {
+        console.error('Error converting coordinates to address:', error);
+      });
   }
 
   onMarkerClick(index: number) {
@@ -136,6 +137,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.drawRoute();
   }
 
+  
   
 
 }

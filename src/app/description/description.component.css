@@ -1,0 +1,20 @@
+.ngFor-container {
+  margin-bottom: 10px;
+}
+
+.input-field {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.remove-button, .add-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-button:hover, .add-button:hover {
+  background-color: #0056b3;
+}

@@ -1,8 +1,10 @@
-.z1 {
-    float: left;
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
-.z2 {
-    float: left;
-    margin-left: 10px; /* Opcjonalne odstępy między obiektami */
+.app-description, .app-map {
+  flex: 1;
+  margin: 10px;
 }

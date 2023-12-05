@@ -19,6 +19,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DescriptionComponent } from './description/description.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { DescriptionComponent } from './description/description.component';
         BrowserAnimationsModule,
         GoogleMapsModule,
         MapComponent,
-        CommonModule
+        CommonModule,
+        FormsModule
     ]
 })
 export class AppModule { }
