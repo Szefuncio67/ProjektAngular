@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MapService } from '../services/map.service';
 import { Subscription } from 'rxjs';
 import { OnDestroy } from '@angular/core';
-import { Point } from '../interfaces/point';
+import { Atrakcja } from '../interfaces/atrakcja';
 
 
 declare var google: any;
@@ -25,7 +25,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   map!: google.maps.Map;
   directionsService!: google.maps.DirectionsService;
   directionsRenderer!: google.maps.DirectionsRenderer;
-  points: Point[] = [];
+  points: Atrakcja[] = [];
   selectedMarkerIndex: number | null = null; // Keep track of the selected marker index
   markers: google.maps.Marker[] = [];
 
@@ -77,13 +77,13 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   });
     this.directionsRenderer.setMap(this.map);
     if(this.mapService.points[0]){
-      const start = new google.maps.LatLng(this.mapService.points[0].latitude, this.mapService.points[0].longitude);
-      const end = new google.maps.LatLng(this.mapService.points[this.mapService.points.length - 1].latitude, this.mapService.points[this.mapService.points.length - 1].longitude);
+      const start = new google.maps.LatLng(this.mapService.points[0].WspolrzednaX, this.mapService.points[0].WspolrzednaY);
+      const end = new google.maps.LatLng(this.mapService.points[this.mapService.points.length - 1].WspolrzednaX, this.mapService.points[this.mapService.points.length - 1].WspolrzednaY);
       const waypoint: google.maps.DirectionsWaypoint[] = [];
 
       for (let i = 1; i < this.mapService.points.length - 1; i++) {
         waypoint.push({
-          location: new google.maps.LatLng(this.mapService.points[i].latitude, this.mapService.points[i].longitude),
+          location: new google.maps.LatLng(this.mapService.points[i].WspolrzednaX, this.mapService.points[i].WspolrzednaY),
           stopover: true,
         });
       }
@@ -112,7 +112,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   onMapClick(event: any) {
     this.mapService.convertCoordinatesToAddress(event.latLng.lat(), event.latLng.lng())
-      .then((newPoint: Point) => {
+      .then((newPoint: Atrakcja) => {
         this.mapService.points.push(newPoint);
         this.drawRoute();
       })

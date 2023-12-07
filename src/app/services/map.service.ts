@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Point } from '../interfaces/point';
+import { Atrakcja } from '../interfaces/atrakcja';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class MapService {
   
-  points: Point[] = [];
+  points: Atrakcja[] = [];
   markerClickSubject = new Subject<number>();
   mapComponentDrawRouteSubject = new Subject<void>();
 
@@ -33,7 +33,7 @@ export class MapService {
     this.mapComponentDrawRouteSubject.next();
   }
   
-  convertCoordinatesToAddress(latitude: number, longitude: number): Promise<Point> {
+  convertCoordinatesToAddress(latitude: number, longitude: number): Promise<Atrakcja> {
     const geocoder = new google.maps.Geocoder();
     const wspolrzedne = new google.maps.LatLng(latitude, longitude);
   
@@ -43,11 +43,7 @@ export class MapService {
           if (results && results.length > 0) {
             const nazwaMiejscowosci = results[0].formatted_address;
   
-            const nowyPunkt: Point = {
-              name: nazwaMiejscowosci,
-              latitude: latitude,
-              longitude: longitude,
-            };
+            const nowyPunkt: Atrakcja = new Atrakcja(0, nazwaMiejscowosci, latitude, longitude);
   
             resolve(nowyPunkt);
           } else {

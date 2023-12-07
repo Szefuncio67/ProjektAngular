@@ -17,6 +17,18 @@
       "email": "mateusz8301@wp.pl",
       "password": "1234",
       "id": 3
+    },
+    {
+      "fullName": "Mateusz Szablowski",
+      "email": "m@wp.pl",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "nazwa": "m",
+      "email": "w@wp.pl",
+      "haslo": "1234",
+      "id": 5
     }
   ]
 }

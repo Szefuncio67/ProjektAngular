@@ -2,21 +2,21 @@
 <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
   <p-card header="Register" [style]="{ width: '360px' }">
     <div class="field">
-      <label for="fullName">FullName</label>
+      <label for="nazwa">Nazwa</label>
       <input
         type="text"
         pInputText
-        formControlName="fullName"
+        formControlName="nazwa"
         class="w-full"
-        name="fullName"
+        name="nazwa"
         placeholder="Type your name"
       />
       <small
-        *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+        *ngIf="nazwa.invalid && (nazwa.dirty || nazwa.touched)"
         class="block p-error"
       >
-        <div *ngIf="fullName.errors?.['required']">Name is required.</div>
-        <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
+        <div *ngIf="nazwa.errors?.['required']">Name is required.</div>
+        <div *ngIf="nazwa.errors?.['pattern']">Enter a valid Name</div>
       </small>
     </div>
     <div class="field">
@@ -38,20 +38,20 @@
       </small>
     </div>
     <div class="field">
-      <label for="password">Password</label>
+      <label for="haslo">haslo</label>
       <input
         type="password"
         pInputText
-        formControlName="password"
+        formControlName="haslo"
         class="w-full"
-        name="password"
-        placeholder="Type your password"
+        name="haslo"
+        placeholder="Type your haslo"
       />
       <small
-        *ngIf="password.invalid && (password.dirty || password.touched)"
+        *ngIf="haslo.invalid && (haslo.dirty || haslo.touched)"
         class="block p-error"
       >
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
+        <div *ngIf="haslo.errors?.['required']">haslo is required.</div>
       </small>
     </div>
     <div class="field">
@@ -77,7 +77,7 @@
       </small>
       <small
         class="block p-error"
-        *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid"
+        *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && haslo.valid"
       >
         Password should match
       </small>

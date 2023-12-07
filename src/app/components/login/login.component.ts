@@ -31,7 +31,8 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
     this.authService.getUserByEmail(email as string).subscribe(
       response => {
-        if (response.length > 0 && response[0].password === password) {
+        console.log(response)
+        if (response.length > 0 && response[0].haslo === password) {
           sessionStorage.setItem('email', email as string);
           this.router.navigate(['/home']);
         } else {

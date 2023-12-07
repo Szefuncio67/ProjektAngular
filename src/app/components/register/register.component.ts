@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { User } from 'src/app/interfaces/auth';
+import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { passwordMatchValidator } from 'src/app/shared/password-match.directive';
 
@@ -14,9 +14,9 @@ import { passwordMatchValidator } from 'src/app/shared/password-match.directive'
 export class RegisterComponent {
 
   registerForm = this.fb.group({
-    fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    nazwa: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    haslo: ['', Validators.required],
     confirmPassword: ['', Validators.required]
   }, {
     validators: passwordMatchValidator
@@ -29,16 +29,16 @@ export class RegisterComponent {
     private router: Router
   ) { }
 
-  get fullName() {
-    return this.registerForm.controls['fullName'];
+  get nazwa() {
+    return this.registerForm.controls['nazwa'];
   }
 
   get email() {
     return this.registerForm.controls['email'];
   }
 
-  get password() {
-    return this.registerForm.controls['password'];
+  get haslo() {
+    return this.registerForm.controls['haslo'];
   }
 
   get confirmPassword() {

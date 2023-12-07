@@ -31,10 +31,10 @@ export class DescriptionComponent {
 
     // Przykładowa logika aktualizacji współrzędnych na podstawie nazwy
     // Dla przykładu, tutaj wywołuję funkcję przekształcającą nazwę na współrzędne
-    this.mapService.convertAddressToCoordinates(this.mapService.points[index].name)
+    this.mapService.convertAddressToCoordinates(this.mapService.points[index].Nazwa)
       .then((coordinates: any) => {
-        this.mapService.points[index].latitude = coordinates.latitude;
-        this.mapService.points[index].longitude = coordinates.longitude;
+        this.mapService.points[index].WspolrzednaX = coordinates.latitude;
+        this.mapService.points[index].WspolrzednaY = coordinates.longitude;
         this.mapService.drawRoute();
       })
       .catch((error: any) => {
