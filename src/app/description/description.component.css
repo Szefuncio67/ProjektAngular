@@ -18,3 +18,18 @@
 .remove-button:hover, .add-button:hover {
   background-color: #0056b3;
 }
+
+.cdk-drag {
+  cursor: move;
+}
+
+.cdk-drag-preview,
+.cdk-drag-placeholder {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cdk-drag-placeholder {
+  border: 2px dashed #ccc;
+}

@@ -36,7 +36,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       this.onMarkerClick(index);
     });
     this.mapService.mapComponentDrawRouteSubject.subscribe(() => {
-      this.directionsRenderer.setMap(null);
+      //this.directionsRenderer.setMap(null);
       this.drawRoute();
   });
   
@@ -113,13 +113,18 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   onMapClick(event: any) {
     this.mapService.convertCoordinatesToAddress(event.latLng.lat(), event.latLng.lng())
       .then((newPoint: Atrakcja) => {
+        // Add the new point to the map service
         this.mapService.points.push(newPoint);
+  
+        // Redraw the route
         this.drawRoute();
       })
       .catch((error: any) => {
         console.error('Error converting coordinates to address:', error);
       });
   }
+  
+  
 
   onMarkerClick(index: number) {
     // Usuń znacznik z mapy

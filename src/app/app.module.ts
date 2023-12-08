@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DescriptionComponent } from './description/description.component';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { FormsModule } from '@angular/forms';
         MapComponent,
         CommonModule,
         FormsModule,
+        DragDropModule
     ]
 })
 export class AppModule { }

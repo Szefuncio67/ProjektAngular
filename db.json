@@ -1,34 +1,112 @@
 {
   "users": [
     {
-      "fullName": "test user",
-      "email": "test1@gmail.com",
-      "password": "1234",
+      "nazwa": "a",
+      "email": "a@w",
+      "haslo": "a",
+      "ulubioneTrasy": [],
       "id": 1
     },
     {
-      "fullName": "test Data",
-      "email": "test@gmail.com",
-      "password": "1234",
+      "nazwa": "a",
+      "email": "z@w",
+      "haslo": "az",
+      "ulubioneTrasy": [
+        {
+          "idTrasa": 0,
+          "nazwa": "trasa1",
+          "opis": "opis tego typu",
+          "atrakcje": [
+            {
+              "idAtrakcja": 0,
+              "nazwa": "7VRH+W2 Nowa Wieś, Polska",
+              "wspolrzednaX": 53.29229775007595,
+              "wspolrzednaY": 20.87754087436066
+            },
+            {
+              "idAtrakcja": 1,
+              "nazwa": "H23C+MC Haradzyets, Białoruś",
+              "wspolrzednaX": 53.55416650463163,
+              "wspolrzednaY": 30.021095517157175
+            },
+            {
+              "idAtrakcja": 2,
+              "nazwa": "344J+CH Velykyi Dyvlyn, Zhytomyr Oblast, Ukraina",
+              "wspolrzednaX": 51.05605772932906,
+              "wspolrzednaY": 28.131447079657175
+            }
+          ]
+        },
+        {
+          "idTrasa": 0,
+          "nazwa": "trasa1",
+          "opis": "opis tego typu",
+          "atrakcje": [
+            {
+              "idAtrakcja": 0,
+              "nazwa": "3MM9+FR Schmiedehausen, Niemcy",
+              "wspolrzednaX": 51.08367174512124,
+              "wspolrzednaY": 11.66953207838402
+            },
+            {
+              "idAtrakcja": 1,
+              "nazwa": "Am Rosenhügel 34, 15890 Eisenhüttenstadt, Niemcy",
+              "wspolrzednaX": 52.14780352821411,
+              "wspolrzednaY": 14.61386801588402
+            },
+            {
+              "idAtrakcja": 2,
+              "nazwa": "3RJM+QR Theilenhofen, Niemcy",
+              "wspolrzednaX": 49.08194849786133,
+              "wspolrzednaY": 10.83457114088402
+            },
+            {
+              "idAtrakcja": 3,
+              "nazwa": "XX8H+F7 Bingen am Rhein, Niemcy",
+              "wspolrzednaX": 49.9662261604683,
+              "wspolrzednaY": 7.9781258283840195
+            },
+            {
+              "idAtrakcja": 4,
+              "nazwa": "XWP2+79 Detmold, Niemcy",
+              "wspolrzednaX": 51.98571334625945,
+              "wspolrzednaY": 8.90097739088402
+            },
+            {
+              "idAtrakcja": 5,
+              "nazwa": "RMMR+RQ Bad Hersfeld, Niemcy",
+              "wspolrzednaX": 50.834552123329985,
+              "wspolrzednaY": 9.69199301588402
+            }
+          ]
+        },
+        {
+          "idTrasa": 0,
+          "nazwa": "trasa1",
+          "opis": "opis tego typu",
+          "atrakcje": [
+            {
+              "idAtrakcja": 1,
+              "nazwa": "Warszawa",
+              "wspolrzednaX": 52.2296756,
+              "wspolrzednaY": 21.0122287
+            },
+            {
+              "idAtrakcja": 0,
+              "nazwa": "22FV+3C Werneck, Niemcy",
+              "wspolrzednaX": 50.02272764635015,
+              "wspolrzednaY": 10.04355551588402
+            },
+            {
+              "idAtrakcja": 2,
+              "nazwa": "R5VG+95 Südheide, Niemcy",
+              "wspolrzednaX": 52.84341172963687,
+              "wspolrzednaY": 10.17539145338402
+            }
+          ]
+        }
+      ],
       "id": 2
-    },
-    {
-      "fullName": "m",
-      "email": "mateusz8301@wp.pl",
-      "password": "1234",
-      "id": 3
-    },
-    {
-      "fullName": "Mateusz Szablowski",
-      "email": "m@wp.pl",
-      "password": "1234",
-      "id": 4
-    },
-    {
-      "nazwa": "m",
-      "email": "w@wp.pl",
-      "haslo": "1234",
-      "id": 5
     }
   ]
 }

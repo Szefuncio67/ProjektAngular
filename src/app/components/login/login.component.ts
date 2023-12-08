@@ -32,7 +32,7 @@ export class LoginComponent {
     this.authService.getUserByEmail(email as string).subscribe(
       response => {
         console.log(response)
-        if (response.length > 0 && response[0].haslo === password) {
+        if (response && response[0].haslo === password) {
           sessionStorage.setItem('email', email as string);
           this.router.navigate(['/home']);
         } else {

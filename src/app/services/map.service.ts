@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Atrakcja } from '../interfaces/atrakcja';
 import { Subject } from 'rxjs';
+import { Trasa } from '../interfaces/trasa';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MapService {
-  
+
+  constructor(
+    private authService: AuthService,
+  ) { }
   points: Atrakcja[] = [];
   markerClickSubject = new Subject<number>();
   mapComponentDrawRouteSubject = new Subject<void>();
@@ -17,9 +22,16 @@ export class MapService {
     this.markerClickSubject.next(index);
   }
 
-  addAllPoints() {
+  addAllPoints(nazwa: string, opis: string) {
     // Skopiuj wszystkie punkty do innej tablicy (możesz użyć .slice() lub innych metod)
     const allPoints = this.points.slice();
+    const trasa = new Trasa(0,nazwa, opis, allPoints);
+    console.log(trasa);
+    this.authService.setTrasainUser(2, trasa);
+    // constructor(private idTrasa: number,
+    //   private nazwa: string,
+    //   private opis: string,
+    //   private atrakcje: Atrakcja[]) {}
     
     // Zeruj listę punktów
     this.points = [];
@@ -43,7 +55,7 @@ export class MapService {
           if (results && results.length > 0) {
             const nazwaMiejscowosci = results[0].formatted_address;
   
-            const nowyPunkt: Atrakcja = new Atrakcja(0, nazwaMiejscowosci, latitude, longitude);
+            const nowyPunkt: Atrakcja = new Atrakcja(this.points.length, nazwaMiejscowosci, latitude, longitude);
   
             resolve(nowyPunkt);
           } else {

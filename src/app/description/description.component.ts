@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import { MapService } from '../services/map.service';
+import { Atrakcja } from '../interfaces/atrakcja';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-description',
@@ -8,6 +10,31 @@ import { MapService } from '../services/map.service';
 })
 export class DescriptionComponent {
   constructor(public mapService: MapService) {}
+  addAddressInput() {
+    // Add a new empty point to the map service
+    const newPoint = new Atrakcja(0, '', 0, 0);
+    this.mapService.points.push(newPoint);
+  
+    // Convert coordinates to address for the newly added point
+    this.mapService.convertCoordinatesToAddress(newPoint.WspolrzednaX, newPoint.WspolrzednaY)
+      .then((updatedPoint: Atrakcja) => {
+        // Update the point with the retrieved address
+        newPoint.Nazwa = updatedPoint.Nazwa;
+  
+        // Redraw the route
+        this.mapService.drawRoute();
+      })
+      .catch((error: any) => {
+        console.error('Error converting coordinates to address:', error);
+      });
+  }
+  
+  removeAddressInput(index: number) {
+    // Remove the point from the map service and redraw the route
+    this.mapService.points.splice(index, 1);
+    this.mapService.drawRoute();
+  }
+
 
   get points() {
     return this.mapService.points;
@@ -22,7 +49,7 @@ export class DescriptionComponent {
   }
 
   addAllPoints() {
-    this.mapService.addAllPoints();
+    this.mapService.addAllPoints('trasa1', "opis tego typu");
     this.mapService.drawRoute(); // Add this line to redraw the route on the map
   }
 
@@ -40,6 +67,14 @@ export class DescriptionComponent {
       .catch((error: any) => {
         console.error('Błąd przekształcania nazwy na współrzędne:', error);
       });
+  }
+  
+  drop(event: CdkDragDrop<Atrakcja>) {
+    // Check if the event is of type CdkDragDrop before proceeding
+    if (event.previousIndex != null && event.currentIndex != null) {
+      moveItemInArray(this.points, event.previousIndex, event.currentIndex);
+      this.mapService.drawRoute();
+    }
   }
   
   

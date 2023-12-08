@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { passwordMatchValidator } from 'src/app/shared/password-match.directive';
+import { Trasa } from 'src/app/interfaces/trasa';
 
 @Component({
   selector: 'app-register',
@@ -46,12 +47,12 @@ export class RegisterComponent {
   }
 
   submitDetails() {
-    const postData = { ...this.registerForm.value };
+    const postData = { ...this.registerForm.value, ulubioneTrasy:[] as Trasa[] };
     const email = postData.email;
     delete postData.confirmPassword;
     this.authService.getUserByEmail(email as string).subscribe(
       response =>{if (!(response.length > 0)){
-        this.authService.registerUser(postData as User).subscribe(
+        this.authService.registerUser(postData as unknown as User).subscribe(
           response => {
             console.log(response);
             this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register successfully' });
