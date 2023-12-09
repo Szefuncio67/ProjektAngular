@@ -52,9 +52,8 @@ export class RegisterComponent {
     delete postData.confirmPassword;
     this.authService.getUserByEmail(email as string).subscribe(
       response =>{if (!(response.length > 0)){
-        this.authService.registerUser(postData as unknown as User).subscribe(
+        this.authService.registerUser(postData as User).subscribe(
           response => {
-            console.log(response);
             this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register successfully' });
             this.router.navigate(['login'])
           },

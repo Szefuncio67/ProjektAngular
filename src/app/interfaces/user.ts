@@ -22,11 +22,11 @@ export class User {
   }
 
   // Accessor methods for each property
-  get idUzytkownik(): number {
+  get id(): number {
     return this._idUzytkownik;
   }
 
-  set idUzytkownik(value: number) {
+  set id(value: number) {
     this._idUzytkownik = value;
   }
 

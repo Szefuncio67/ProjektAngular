@@ -11,102 +11,179 @@
       "nazwa": "a",
       "email": "z@w",
       "haslo": "az",
-      "ulubioneTrasy": [
+      "id": 2
+    }
+  ],
+  "ulubioneTrasy": [
+    {
+      "Atrakcje": [
         {
-          "idTrasa": 0,
-          "nazwa": "trasa1",
-          "opis": "opis tego typu",
-          "atrakcje": [
-            {
-              "idAtrakcja": 0,
-              "nazwa": "7VRH+W2 Nowa Wieś, Polska",
-              "wspolrzednaX": 53.29229775007595,
-              "wspolrzednaY": 20.87754087436066
-            },
-            {
-              "idAtrakcja": 1,
-              "nazwa": "H23C+MC Haradzyets, Białoruś",
-              "wspolrzednaX": 53.55416650463163,
-              "wspolrzednaY": 30.021095517157175
-            },
-            {
-              "idAtrakcja": 2,
-              "nazwa": "344J+CH Velykyi Dyvlyn, Zhytomyr Oblast, Ukraina",
-              "wspolrzednaX": 51.05605772932906,
-              "wspolrzednaY": 28.131447079657175
-            }
-          ]
+          "idAtrakcja": 0,
+          "nazwa": "4V5X+6J Rogowo-Kolonia, Polska",
+          "wspolrzednaX": 53.108028860738166,
+          "wspolrzednaY": 22.89902524936066
         },
         {
-          "idTrasa": 0,
-          "nazwa": "trasa1",
-          "opis": "opis tego typu",
-          "atrakcje": [
-            {
-              "idAtrakcja": 0,
-              "nazwa": "3MM9+FR Schmiedehausen, Niemcy",
-              "wspolrzednaX": 51.08367174512124,
-              "wspolrzednaY": 11.66953207838402
-            },
-            {
-              "idAtrakcja": 1,
-              "nazwa": "Am Rosenhügel 34, 15890 Eisenhüttenstadt, Niemcy",
-              "wspolrzednaX": 52.14780352821411,
-              "wspolrzednaY": 14.61386801588402
-            },
-            {
-              "idAtrakcja": 2,
-              "nazwa": "3RJM+QR Theilenhofen, Niemcy",
-              "wspolrzednaX": 49.08194849786133,
-              "wspolrzednaY": 10.83457114088402
-            },
-            {
-              "idAtrakcja": 3,
-              "nazwa": "XX8H+F7 Bingen am Rhein, Niemcy",
-              "wspolrzednaX": 49.9662261604683,
-              "wspolrzednaY": 7.9781258283840195
-            },
-            {
-              "idAtrakcja": 4,
-              "nazwa": "XWP2+79 Detmold, Niemcy",
-              "wspolrzednaX": 51.98571334625945,
-              "wspolrzednaY": 8.90097739088402
-            },
-            {
-              "idAtrakcja": 5,
-              "nazwa": "RMMR+RQ Bad Hersfeld, Niemcy",
-              "wspolrzednaX": 50.834552123329985,
-              "wspolrzednaY": 9.69199301588402
-            }
-          ]
+          "idAtrakcja": 1,
+          "nazwa": "5XVC+H4 Leisnig, Niemcy",
+          "wspolrzednaX": 51.19396310028454,
+          "wspolrzednaY": 12.970314267157175
         },
         {
-          "idTrasa": 0,
-          "nazwa": "trasa1",
-          "opis": "opis tego typu",
-          "atrakcje": [
-            {
-              "idAtrakcja": 1,
-              "nazwa": "Warszawa",
-              "wspolrzednaX": 52.2296756,
-              "wspolrzednaY": 21.0122287
-            },
-            {
-              "idAtrakcja": 0,
-              "nazwa": "22FV+3C Werneck, Niemcy",
-              "wspolrzednaX": 50.02272764635015,
-              "wspolrzednaY": 10.04355551588402
-            },
-            {
-              "idAtrakcja": 2,
-              "nazwa": "R5VG+95 Südheide, Niemcy",
-              "wspolrzednaX": 52.84341172963687,
-              "wspolrzednaY": 10.17539145338402
-            }
-          ]
+          "idAtrakcja": 2,
+          "nazwa": "3G7J+P8 Trostberg, Niemcy",
+          "wspolrzednaX": 48.06430068836101,
+          "wspolrzednaY": 12.530861142157175
+        },
+        {
+          "idAtrakcja": 3,
+          "nazwa": "WWPF+F9 Filea, Rumunia",
+          "wspolrzednaX": 46.93618467044299,
+          "wspolrzednaY": 24.923439267157175
         }
       ],
+      "Nazwa": "trasa1",
+      "Opis": "opis tego typu",
+      "user_id": "1",
+      "id": 1
+    },
+    {
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "4FQ5+GC Kuźmiwka, Obwód rówieński, Ukraina",
+          "wspolrzednaX": 51.13885035742525,
+          "wspolrzednaY": 26.45859556186066
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "Žitavská 285/285, 471 24 Mimoň-Mimoň IV, Czechy",
+          "wspolrzednaX": 50.667729824645015,
+          "wspolrzednaY": 14.728126767157175
+        },
+        {
+          "idAtrakcja": 2,
+          "nazwa": "RHWF+24 Banatsko Veliko Selo, Serbia",
+          "wspolrzednaX": 45.84505024029787,
+          "wspolrzednaY": 20.572853329657175
+        }
+      ],
+      "Nazwa": "trasa1",
+      "Opis": "opis tego typu",
+      "user_id": "1",
       "id": 2
+    },
+    {
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "267R+4P Lieberose, Niemcy",
+          "wspolrzednaX": 52.0127692396695,
+          "wspolrzednaY": 14.241798686860658
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "8J6H+MQ Malý Bor-Horažďovice, Czechy",
+          "wspolrzednaX": 49.31168090698302,
+          "wspolrzednaY": 13.629493954657175
+        }
+      ],
+      "Nazwa": "trasa1",
+      "Opis": "opis tego typu",
+      "user_id": "1",
+      "id": 3
+    },
+    {
+      "Nazwa": "trasa1",
+      "Opis": "opis tego typu",
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "XCG8+97 Tybory-Olszewo, Polska",
+          "wspolrzednaX": 52.9759228432101,
+          "wspolrzednaY": 22.41562681186066
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "5MR7+P3 Královské Poříčí-Sokolov 1, Czechy",
+          "wspolrzednaX": 50.191833930537356,
+          "wspolrzednaY": 12.662697079657175
+        },
+        {
+          "idAtrakcja": 2,
+          "nazwa": "9PVX+8F Tótkomlós, Węgry",
+          "wspolrzednaX": 46.3933443027779,
+          "wspolrzednaY": 20.748634579657175
+        }
+      ],
+      "user_id": "1",
+      "id": 4
+    },
+    {
+      "Nazwa": "trasa1",
+      "Opis": "opis tego typu",
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "WFJC+J4 Trojanów, Polska",
+          "wspolrzednaX": 51.93155249286418,
+          "wspolrzednaY": 23.47031431186066
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "VFR7+29 Świercze, Polska",
+          "wspolrzednaX": 50.89002748523305,
+          "wspolrzednaY": 18.463478329657175
+        }
+      ],
+      "user_id": "1",
+      "id": 5
+    },
+    {
+      "Nazwa": "trasa1",
+      "Opis": "opis tego typu",
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "9F8XH5W7+JF",
+          "wspolrzednaX": 56.596535354464834,
+          "wspolrzednaY": 19.16367368686066
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "Q7WX+GQ Petrovice I, Czechy",
+          "wspolrzednaX": 49.79632320650629,
+          "wspolrzednaY": 15.299415829657175
+        },
+        {
+          "idAtrakcja": 2,
+          "nazwa": "HF6F+F7 Soimy, Zakarpattia Oblast, Ukraina",
+          "wspolrzednaX": 48.56114518118733,
+          "wspolrzednaY": 23.473243954657175
+        }
+      ],
+      "user_id": "1",
+      "id": 6
+    },
+    {
+      "Nazwa": "trasa1",
+      "Opis": "opis tego typu",
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "6727+M8 Wioska, Polska",
+          "wspolrzednaX": 52.20170289960452,
+          "wspolrzednaY": 16.26328306186066
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "Hinter d. Kirche 10, 97253 Gaukönigshofen, Niemcy",
+          "wspolrzednaX": 49.62582203598503,
+          "wspolrzednaY": 9.982033017157175
+        }
+      ],
+      "user_id": "2",
+      "id": 7
     }
   ]
 }

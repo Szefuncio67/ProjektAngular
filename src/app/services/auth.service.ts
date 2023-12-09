@@ -19,18 +19,18 @@ export class AuthService {
   }
 
   getUserByEmail(email: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);
+    return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`)
   }
   setTrasainUser(userId: number, newFavoriteRoute: Trasa){
     this.getUserById(userId).subscribe(
       (user: User) => {
-        // Clone the existing ulubioneTrasy array and add the new route
-        const updatedTrasy = [...user.ulubioneTrasy, newFavoriteRoute];
-        
-        // Update the user with the modified ulubioneTrasy array
-        const updatedUser = { ulubioneTrasy: updatedTrasy };
-  
-        return this.http.patch(`${this.baseUrl}/users/${userId}`, updatedUser).subscribe();
+        const updatedTrasy = {
+          Nazwa: newFavoriteRoute.Nazwa,
+          Opis: newFavoriteRoute.Opis,
+          Atrakcje: newFavoriteRoute.Atrakcje,
+ 
+      };
+      this.http.post(`${this.baseUrl}/users/${userId}/ulubioneTrasy`, updatedTrasy).subscribe();
       },
       error => {
         console.log('Error fetching user by ID:', error);

@@ -27,7 +27,14 @@ export class MapService {
     const allPoints = this.points.slice();
     const trasa = new Trasa(0,nazwa, opis, allPoints);
     console.log(trasa);
-    this.authService.setTrasainUser(2, trasa);
+    const email = sessionStorage.getItem('email') ?? '';
+    console.log(email);
+    let idUser =10;
+    this.authService.getUserByEmail(email).subscribe(
+      response=>{
+        this.authService.setTrasainUser(response[0].id, trasa);
+      }
+    );
     // constructor(private idTrasa: number,
     //   private nazwa: string,
     //   private opis: string,
