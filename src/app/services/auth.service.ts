@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
 import { Trasa } from '../interfaces/trasa';
+import { Atrakcja } from '../interfaces/atrakcja';
 
 @Injectable({
   providedIn: 'root'
@@ -21,19 +22,38 @@ export class AuthService {
   getUserByEmail(email: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`)
   }
-  setTrasainUser(userId: number, newFavoriteRoute: Trasa){
+  getTrasaById(userId: number): Observable<Trasa[]> {
+    return this.http.get<Trasa[]>(`${this.baseUrl}/users/${userId}/ulubioneTrasy`);
+  }
+
+  setTrasainUser(userId: number, newFavoriteRoute: Trasa) {
     this.getUserById(userId).subscribe(
       (user: User) => {
+        const updateAtrakcje = newFavoriteRoute.Atrakcje.map(element => ({
+          idAtrakcja: element.idAtrakcja,
+          nazwa: element.nazwa,
+          wspolrzednaX: element.wspolrzednaX,
+          wspolrzednaY: element.wspolrzednaY,
+        }));
+  
         const updatedTrasy = {
           Nazwa: newFavoriteRoute.Nazwa,
           Opis: newFavoriteRoute.Opis,
-          Atrakcje: newFavoriteRoute.Atrakcje,
- 
-      };
-      this.http.post(`${this.baseUrl}/users/${userId}/ulubioneTrasy`, updatedTrasy).subscribe();
+          Atrakcje: updateAtrakcje,
+        };
+  
+        this.http.post(`${this.baseUrl}/users/${userId}/ulubioneTrasy`, updatedTrasy)
+          .subscribe(
+            () => {
+              console.log('Favorite route set successfully');
+            },
+            error => {
+              console.error('Error setting favorite route:', error);
+            }
+          );
       },
       error => {
-        console.log('Error fetching user by ID:', error);
+        console.error('Error fetching user by ID:', error);
       }
     );
   }

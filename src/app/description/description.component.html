@@ -1,20 +1,45 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div *ngFor="let point of points; let i = index" class="ngFor-container point-container" cdkDrag>
-    <p>
-      Adres:
-      <input type="text" [(ngModel)]="point.Nazwa" (ngModelChange)="updateCoordinatesOnNameChange(i)"
-        name="markerName{{i}}" placeholder="Marker Name" class="input-field">
-    </p>
-    <p>
-      X:
-      <span>{{ point.WspolrzednaX }}</span>
-      Y:
-      <span>{{ point.WspolrzednaY }}</span>
-      <button (click)="onMarkerClick(i)" class="remove-button">Remove</button>
-    </p>
+<!-- description.component.html -->
+
+<form #routeForm="ngForm">
+  <div>
+    <label for="routeName">Nazwa Trasy:</label>
+    <input type="text" id="routeName" name="routeName" [(ngModel)]="routeName" required class="input-field">
   </div>
-</div>
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let point of points; let i = index" class="ngFor-container point-container" cdkDrag>
+      <p>
+        Adres:
+        <input type="text" [value]="point.nazwa" (input)="updateName($event, i)"
+          name="markerName{{i}}" placeholder="Marker Name" class="input-field">
+      </p>
+      <p>
+        X:
+        <span>{{ point.wspolrzednaX }}</span>
+        Y:
+        <span>{{ point.wspolrzednaY }}</span>
+        <button (click)="onMarkerClick(i)" class="remove-button">Remove</button>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label for="routeDescription">Opis Trasy:</label>
+    <input type="text" id="routeDescription" name="routeDescription" [(ngModel)]="routeDescription" required class="input-field">
+  </div>
+  <!-- Add this under the route description input -->
 <div>
-  <button (click)="addAllPoints()" class="add-button">Dodaj Trase</button>
-  <button (click)="addAddressInput()" class="add-button">Dodaj Adres</button>
+  <label for="routeLength">Długość Trasy (km):</label>
+  <span>{{ this.mapService.routeLength }}</span>
 </div>
+
+<div *ngFor="let legDuration of this.mapService.legDurations; let i = index">
+  <label for="legDuration{{ i }}">Czas podróży między punktem {{ i + 1 }} a punktem {{ i + 2 }}:</label>
+  <span>{{ legDuration }}</span>
+</div>
+
+
+  <div>
+    <button (click)="addAllPoints()" [disabled]="!routeForm.form.valid" class="add-button">Zapisz Trase</button>
+    <button (click)="addAddressInput()" class="add-button">Dodaj Punkt</button>
+  </div>
+</form>

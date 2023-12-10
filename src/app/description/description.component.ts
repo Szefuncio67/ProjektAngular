@@ -3,6 +3,7 @@ import { MapService } from '../services/map.service';
 import { Atrakcja } from '../interfaces/atrakcja';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
+
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
@@ -10,16 +11,18 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class DescriptionComponent {
   constructor(public mapService: MapService) {}
+  routeName:string = '';
+  routeDescription:string = '';
   addAddressInput() {
     // Add a new empty point to the map service
     const newPoint = new Atrakcja(0, '', 0, 0);
     this.mapService.points.push(newPoint);
   
     // Convert coordinates to address for the newly added point
-    this.mapService.convertCoordinatesToAddress(newPoint.WspolrzednaX, newPoint.WspolrzednaY)
+    this.mapService.convertCoordinatesToAddress(newPoint.wspolrzednaX, newPoint.wspolrzednaY)
       .then((updatedPoint: Atrakcja) => {
         // Update the point with the retrieved address
-        newPoint.Nazwa = updatedPoint.Nazwa;
+        newPoint.nazwa = updatedPoint.nazwa;
   
         // Redraw the route
         this.mapService.drawRoute();
@@ -49,8 +52,12 @@ export class DescriptionComponent {
   }
 
   addAllPoints() {
-    this.mapService.addAllPoints('trasa1', "opis tego typu");
-    this.mapService.drawRoute(); // Add this line to redraw the route on the map
+    if (this.routeName && this.routeDescription) {
+      this.mapService.addAllPoints(this.routeName, this.routeDescription);
+      this.mapService.drawRoute();
+      this.routeName='';
+      this.routeDescription='';
+    }
   }
 
   updateCoordinatesOnNameChange(index: number) {
@@ -58,10 +65,10 @@ export class DescriptionComponent {
 
     // Przykładowa logika aktualizacji współrzędnych na podstawie nazwy
     // Dla przykładu, tutaj wywołuję funkcję przekształcającą nazwę na współrzędne
-    this.mapService.convertAddressToCoordinates(this.mapService.points[index].Nazwa)
+    this.mapService.convertAddressToCoordinates(this.mapService.points[index].nazwa)
       .then((coordinates: any) => {
-        this.mapService.points[index].WspolrzednaX = coordinates.latitude;
-        this.mapService.points[index].WspolrzednaY = coordinates.longitude;
+        this.mapService.points[index].wspolrzednaX = coordinates.latitude;
+        this.mapService.points[index].wspolrzednaY = coordinates.longitude;
         this.mapService.drawRoute();
       })
       .catch((error: any) => {
@@ -75,6 +82,10 @@ export class DescriptionComponent {
       moveItemInArray(this.points, event.previousIndex, event.currentIndex);
       this.mapService.drawRoute();
     }
+  }
+  updateName(event: any, index: number) {
+    // Update the name property for the corresponding point
+    this.points[index].nazwa = event.target.value;
   }
   
   

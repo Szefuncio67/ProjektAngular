@@ -21,6 +21,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DescriptionComponent } from './description/description.component';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { UserComponent } from './user/user.component';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { MyRoutesComponent } from './my-routes/my-routes.component';
+import { FavoriteRoutesComponent } from './favorite-routes/favorite-routes.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +34,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         HomeComponent,
         NavbarComponent,
         DescriptionComponent,
+        UserComponent,
+        AboutMeComponent,
+        MyRoutesComponent,
+        FavoriteRoutesComponent,
     ],
     providers: [MessageService],
     bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="isLoggedIn">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" routerLink="/user" routerLinkActive="active">Users</a>
         <p-button label="Sign out" (onClick)="logOut()"></p-button>
     </div>
   </nav>

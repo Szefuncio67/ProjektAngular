@@ -12,9 +12,11 @@ export class MapService {
   constructor(
     private authService: AuthService,
   ) { }
+  routeLength: number = 0;
   points: Atrakcja[] = [];
   markerClickSubject = new Subject<number>();
   mapComponentDrawRouteSubject = new Subject<void>();
+  legDurations: string[] = [];
 
   
   // Metoda do powiadamiania o kliknięciu znacznika
@@ -60,9 +62,27 @@ export class MapService {
       geocoder.geocode({ location: wspolrzedne }, (results: any, status: any) => {
         if (status === google.maps.GeocoderStatus.OK) {
           if (results && results.length > 0) {
-            const nazwaMiejscowosci = results[0].formatted_address;
+            const addressComponents = results[0].address_components;
   
-            const nowyPunkt: Atrakcja = new Atrakcja(this.points.length, nazwaMiejscowosci, latitude, longitude);
+            // Zbuduj adres bez kodu Plus Code
+            let formattedAddress = '';
+            for (let i = 0; i < addressComponents.length; i++) {
+              const component = addressComponents[i];
+              if (component.types.includes('street_number') || component.types.includes('route')) {
+                formattedAddress += component.long_name + ' ';
+              } else if (component.types.includes('locality')) {
+                formattedAddress += component.long_name;
+              } else if (component.types.includes('postal_code')) {
+                // Dodaj kod pocztowy do adresu
+                formattedAddress += ' ' + component.long_name;
+              } else if (component.types.includes('country')) {
+                // Dodaj kraj do adresu
+                formattedAddress += ', ' + component.long_name;
+              }
+              // Dodaj dodatkowe sprawdzenia dla innych składowych, jeśli to konieczne
+            }
+  
+            const nowyPunkt: Atrakcja = new Atrakcja(this.points.length, formattedAddress, latitude, longitude);
   
             resolve(nowyPunkt);
           } else {
@@ -76,6 +96,7 @@ export class MapService {
       });
     });
   }
+  
 
   convertAddressToCoordinates(address: string): Promise<any> {
     const geocoder = new google.maps.Geocoder();

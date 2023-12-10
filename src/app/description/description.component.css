@@ -1,35 +1,84 @@
-.ngFor-container {
+/* styles.css or your preferred stylesheet */
+
+/* Flex container styling for home page */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* description.component.css or your preferred stylesheet */
+
+/* Form styling */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Input field styling */
+.input-field {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* Drop list container styling */
+.example-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Point container styling */
+.point-container {
+  border: 1px solid #ccc;
+  padding: 10px;
   margin-bottom: 10px;
 }
 
-.input-field {
-  padding: 5px;
-  margin-right: 10px;
-}
-
-.remove-button, .add-button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: #fff;
+/* Remove button styling */
+.remove-button {
+  background-color: #f44336; /* Red background */
+  color: white;
   border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
   cursor: pointer;
-}
-
-.remove-button:hover, .add-button:hover {
-  background-color: #0056b3;
-}
-
-.cdk-drag {
-  cursor: move;
-}
-
-.cdk-drag-preview,
-.cdk-drag-placeholder {
-  box-sizing: border-box;
   border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cdk-drag-placeholder {
-  border: 2px dashed #ccc;
+.remove-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
 }
+
+/* Add button styling */
+.add-button {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-button:disabled {
+  background-color: #cccccc; /* Gray background for disabled state */
+  cursor: not-allowed;
+}
+
+.add-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* map.component.css or your preferred stylesheet */
+
+/* Add your styles for the map component here */
+
+/* Add any other global styles as needed */

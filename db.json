@@ -12,178 +12,126 @@
       "email": "z@w",
       "haslo": "az",
       "id": 2
+    },
+    {
+      "nazwa": "b",
+      "email": "b@w",
+      "haslo": "b",
+      "ulubioneTrasy": [],
+      "id": 3
+    },
+    {
+      "nazwa": "s",
+      "email": "s@s",
+      "haslo": "s",
+      "ulubioneTrasy": [],
+      "id": 4
     }
   ],
   "ulubioneTrasy": [
     {
+      "Nazwa": "a",
+      "Opis": "a",
       "Atrakcje": [
         {
           "idAtrakcja": 0,
-          "nazwa": "4V5X+6J Rogowo-Kolonia, Polska",
-          "wspolrzednaX": 53.108028860738166,
-          "wspolrzednaY": 22.89902524936066
+          "nazwa": "41B Polna Głosków, Polska 05-503",
+          "wspolrzednaX": 52.035132514641916,
+          "wspolrzednaY": 20.93559058296547
         },
         {
           "idAtrakcja": 1,
-          "nazwa": "5XVC+H4 Leisnig, Niemcy",
-          "wspolrzednaX": 51.19396310028454,
-          "wspolrzednaY": 12.970314267157175
+          "nazwa": "17 Rembertowska Poznań, Polska 60-143",
+          "wspolrzednaX": 52.38519716540478,
+          "wspolrzednaY": 16.87064917671547
         },
         {
           "idAtrakcja": 2,
-          "nazwa": "3G7J+P8 Trostberg, Niemcy",
-          "wspolrzednaX": 48.06430068836101,
-          "wspolrzednaY": 12.530861142157175
-        },
-        {
-          "idAtrakcja": 3,
-          "nazwa": "WWPF+F9 Filea, Rumunia",
-          "wspolrzednaX": 46.93618467044299,
-          "wspolrzednaY": 24.923439267157175
+          "nazwa": "32 Wybrzeże Stanisława Wyspiańskiego Wrocław, Polska 50-370",
+          "wspolrzednaX": 51.10649650209158,
+          "wspolrzednaY": 17.06840308296547
         }
       ],
-      "Nazwa": "trasa1",
-      "Opis": "opis tego typu",
-      "user_id": "1",
-      "id": 1
-    },
-    {
-      "Atrakcje": [
-        {
-          "idAtrakcja": 0,
-          "nazwa": "4FQ5+GC Kuźmiwka, Obwód rówieński, Ukraina",
-          "wspolrzednaX": 51.13885035742525,
-          "wspolrzednaY": 26.45859556186066
-        },
-        {
-          "idAtrakcja": 1,
-          "nazwa": "Žitavská 285/285, 471 24 Mimoň-Mimoň IV, Czechy",
-          "wspolrzednaX": 50.667729824645015,
-          "wspolrzednaY": 14.728126767157175
-        },
-        {
-          "idAtrakcja": 2,
-          "nazwa": "RHWF+24 Banatsko Veliko Selo, Serbia",
-          "wspolrzednaX": 45.84505024029787,
-          "wspolrzednaY": 20.572853329657175
-        }
-      ],
-      "Nazwa": "trasa1",
-      "Opis": "opis tego typu",
       "user_id": "1",
       "id": 2
     },
     {
+      "Nazwa": "w",
+      "Opis": "w",
       "Atrakcje": [
         {
           "idAtrakcja": 0,
-          "nazwa": "267R+4P Lieberose, Niemcy",
-          "wspolrzednaX": 52.0127692396695,
-          "wspolrzednaY": 14.241798686860658
+          "nazwa": "Oßling, Niemcy",
+          "wspolrzednaX": 51.36787919612872,
+          "wspolrzednaY": 14.124067145465471
         },
         {
           "idAtrakcja": 1,
-          "nazwa": "8J6H+MQ Malý Bor-Horažďovice, Czechy",
-          "wspolrzednaX": 49.31168090698302,
-          "wspolrzednaY": 13.629493954657175
+          "nazwa": "Kulczyn, Polska 26-704",
+          "wspolrzednaX": 51.340435143101075,
+          "wspolrzednaY": 21.72660620796547
+        },
+        {
+          "idAtrakcja": 2,
+          "nazwa": "Javorník, Czechy 696 74",
+          "wspolrzednaX": 48.83168409726381,
+          "wspolrzednaY": 17.55180152046547
         }
       ],
-      "Nazwa": "trasa1",
-      "Opis": "opis tego typu",
       "user_id": "1",
       "id": 3
     },
     {
-      "Nazwa": "trasa1",
-      "Opis": "opis tego typu",
+      "Nazwa": "d",
+      "Opis": "d",
       "Atrakcje": [
         {
           "idAtrakcja": 0,
-          "nazwa": "XCG8+97 Tybory-Olszewo, Polska",
-          "wspolrzednaX": 52.9759228432101,
-          "wspolrzednaY": 22.41562681186066
+          "nazwa": "Szyszki, Polska 08",
+          "wspolrzednaX": 51.94041267143397,
+          "wspolrzednaY": 22.07816870796547
         },
         {
           "idAtrakcja": 1,
-          "nazwa": "5MR7+P3 Královské Poříčí-Sokolov 1, Czechy",
-          "wspolrzednaX": 50.191833930537356,
-          "wspolrzednaY": 12.662697079657175
+          "nazwa": "14 Straße zur Försterei Zossen, Niemcy 15806",
+          "wspolrzednaX": 52.21050963747945,
+          "wspolrzednaY": 13.552778082965471
         },
         {
           "idAtrakcja": 2,
-          "nazwa": "9PVX+8F Tótkomlós, Węgry",
-          "wspolrzednaX": 46.3933443027779,
-          "wspolrzednaY": 20.748634579657175
+          "nazwa": "Eiterfeld, Niemcy 36132",
+          "wspolrzednaX": 50.73250006563704,
+          "wspolrzednaY": 9.861371832965471
         }
       ],
-      "user_id": "1",
+      "user_id": "4",
       "id": 4
     },
     {
-      "Nazwa": "trasa1",
-      "Opis": "opis tego typu",
+      "Nazwa": "tt",
+      "Opis": "teasa",
       "Atrakcje": [
         {
           "idAtrakcja": 0,
-          "nazwa": "WFJC+J4 Trojanów, Polska",
-          "wspolrzednaX": 51.93155249286418,
-          "wspolrzednaY": 23.47031431186066
+          "nazwa": "gen. Józefa Bema 95/84",
+          "wspolrzednaX": 50.0650967,
+          "wspolrzednaY": 18.4130449
         },
         {
           "idAtrakcja": 1,
-          "nazwa": "VFR7+29 Świercze, Polska",
-          "wspolrzednaX": 50.89002748523305,
-          "wspolrzednaY": 18.463478329657175
-        }
-      ],
-      "user_id": "1",
-      "id": 5
-    },
-    {
-      "Nazwa": "trasa1",
-      "Opis": "opis tego typu",
-      "Atrakcje": [
-        {
-          "idAtrakcja": 0,
-          "nazwa": "9F8XH5W7+JF",
-          "wspolrzednaX": 56.596535354464834,
-          "wspolrzednaY": 19.16367368686066
-        },
-        {
-          "idAtrakcja": 1,
-          "nazwa": "Q7WX+GQ Petrovice I, Czechy",
-          "wspolrzednaX": 49.79632320650629,
-          "wspolrzednaY": 15.299415829657175
+          "nazwa": "13 Olsztyńska Otwock, Polska 05-400",
+          "wspolrzednaX": 52.102666931888116,
+          "wspolrzednaY": 21.24320777046547
         },
         {
           "idAtrakcja": 2,
-          "nazwa": "HF6F+F7 Soimy, Zakarpattia Oblast, Ukraina",
-          "wspolrzednaX": 48.56114518118733,
-          "wspolrzednaY": 23.473243954657175
+          "nazwa": "19 DC116 Sechereşa, Rumunia 447296",
+          "wspolrzednaX": 47.45358322236601,
+          "wspolrzednaY": 22.73734839546547
         }
       ],
-      "user_id": "1",
-      "id": 6
-    },
-    {
-      "Nazwa": "trasa1",
-      "Opis": "opis tego typu",
-      "Atrakcje": [
-        {
-          "idAtrakcja": 0,
-          "nazwa": "6727+M8 Wioska, Polska",
-          "wspolrzednaX": 52.20170289960452,
-          "wspolrzednaY": 16.26328306186066
-        },
-        {
-          "idAtrakcja": 1,
-          "nazwa": "Hinter d. Kirche 10, 97253 Gaukönigshofen, Niemcy",
-          "wspolrzednaX": 49.62582203598503,
-          "wspolrzednaY": 9.982033017157175
-        }
-      ],
-      "user_id": "2",
-      "id": 7
+      "user_id": "4",
+      "id": 5
     }
   ]
 }

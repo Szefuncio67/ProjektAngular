@@ -1,0 +1,17 @@
+<!-- about-me.component.html -->
+<div *ngIf="user | async as user; else userNotFound">
+  <div class="user-details">
+    <h2>User Details</h2>
+    <p>ID: {{ user.id }}</p>
+    <p>Name: {{ user.nazwa }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Liczba tras: {{ trasy.length }}</p>
+    <!-- Add other properties as needed -->
+  </div>
+</div>
+
+<ng-template #userNotFound>
+  <div class="user-not-found">
+    <p>User not found</p>
+  </div>
+</ng-template>

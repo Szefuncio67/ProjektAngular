@@ -1,0 +1,57 @@
+/* my-routes.component.css or your preferred stylesheet */
+
+/* Container styling */
+.route-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .route-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Header styling */
+  .route-header {
+    font-size: 1.2em;
+  }
+  
+  /* Attractions styling */
+  .attractions-list {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 0;
+  }
+  
+  .attraction-item {
+    margin-bottom: 5px;
+  }
+  
+  /* Button styling */
+  .edit-button,
+  .remove-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover,
+  .remove-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  /* No routes or attractions styling */
+  p {
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+  }
+  

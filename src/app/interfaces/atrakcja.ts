@@ -1,37 +1,49 @@
 
 export class Atrakcja {
-    constructor(
-        private idAtrakcja: number,
-        private nazwa: string,
-        private wspolrzednaX: number,
-        private wspolrzednaY: number
-    ) {}
+private _idAtrakcja: number;
+private _nazwa: string;
+private _wspolrzednaX: number;
+private _wspolrzednaY: number;
 
-  set IdAtrakcja(idAtrakcja: number) {
-      this.idAtrakcja = idAtrakcja;
-  }
-  get IdAtrakcja(): number {
-      return this.idAtrakcja;
-  }
+constructor(
+    idAtrakcja: number,
+    nazwa: string,
+    wspolrzednaX: number,
+    wspolrzednaY: number
+) {
+    this._idAtrakcja =idAtrakcja;
+    this._nazwa =nazwa;
+    this._wspolrzednaX =wspolrzednaX;
+    this._wspolrzednaY =wspolrzednaY;
+}
 
-  set Nazwa(nazwa: string) {
-      this.nazwa = nazwa;
-  }
-  get Nazwa(): string {
-      return this.nazwa;
-  }
+    
 
-  set WspolrzednaX(wspolrzednaX: number) {
-      this.wspolrzednaX = wspolrzednaX;
+  set idAtrakcja(value: number) {
+      this._idAtrakcja = value;
   }
-  get WspolrzednaX(): number {
-      return this.wspolrzednaX;
+  get idAtrakcja(): number {
+      return this._idAtrakcja;
   }
 
-  set WspolrzednaY(wspolrzednaY: number) {
-      this.wspolrzednaY = wspolrzednaY;
+  set nazwa(value: string) {
+      this._nazwa = value;
   }
-  get WspolrzednaY(): number {
-      return this.wspolrzednaY;
+  get nazwa(): string {
+      return this._nazwa;
+  }
+
+  set wspolrzednaX(value: number) {
+      this._wspolrzednaX = value;
+  }
+  get wspolrzednaX(): number {
+      return this._wspolrzednaX;
+  }
+
+  set wspolrzednaY(value: number) {
+      this._wspolrzednaY = value;
+  }
+  get wspolrzednaY(): number {
+      return this._wspolrzednaY;
   }
 }

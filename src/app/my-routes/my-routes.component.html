@@ -1,0 +1,29 @@
+<!-- my-routes.component.html -->
+<div *ngIf="trasy.length > 0">
+  <h2>My Routes</h2>
+  <ul>
+    <li *ngFor="let trasa of trasy" class="route-item">
+      <!-- Display only name and description -->
+      <div class="route-header" (click)="toggleDetails(trasa)">
+        {{ trasa.Nazwa }} - {{ trasa.Opis }}
+      </div>
+      
+      <!-- Display information about attractions within the route, initially hidden -->
+      <div *ngIf="trasa.showDetails" class="route-details">
+        <ul *ngIf="trasa.Atrakcje && trasa.Atrakcje.length > 0" class="attractions-list">
+          <li *ngFor="let atrakcja of trasa.Atrakcje" class="attraction-item">
+            {{ atrakcja.nazwa }} - {{ atrakcja.wspolrzednaX }} - {{ atrakcja.wspolrzednaY }}
+          </li>
+        </ul>
+        <div *ngIf="!trasa.Atrakcje || trasa.Atrakcje.length === 0">
+          <p>No attractions available for this route</p>
+        </div>
+        <button class="edit-button">Edytuj</button>
+        <button class="remove-button">Usuń</button>
+      </div>
+    </li>
+  </ul>
+</div>
+<div *ngIf="trasy.length === 0">
+  <p>No routes available</p>
+</div>

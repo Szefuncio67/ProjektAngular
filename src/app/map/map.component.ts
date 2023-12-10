@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 import { MapService } from '../services/map.service';
@@ -17,9 +17,12 @@ declare var google: any;
   styleUrls: ['./map.component.css'],
   imports: [GoogleMapsModule,CommonModule]
 })
-export class MapComponent implements AfterViewInit, OnDestroy {
+export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
   private markerClickSubscription: Subscription = new Subscription();
   constructor(private mapService: MapService) {}
+  ngOnInit(): void {
+    this.initMap();
+  }
   @ViewChild('mapElement', { static: false }) mapElement!: ElementRef;
 
   map!: google.maps.Map;
@@ -77,13 +80,13 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   });
     this.directionsRenderer.setMap(this.map);
     if(this.mapService.points[0]){
-      const start = new google.maps.LatLng(this.mapService.points[0].WspolrzednaX, this.mapService.points[0].WspolrzednaY);
-      const end = new google.maps.LatLng(this.mapService.points[this.mapService.points.length - 1].WspolrzednaX, this.mapService.points[this.mapService.points.length - 1].WspolrzednaY);
+      const start = new google.maps.LatLng(this.mapService.points[0].wspolrzednaX, this.mapService.points[0].wspolrzednaY);
+      const end = new google.maps.LatLng(this.mapService.points[this.mapService.points.length - 1].wspolrzednaX, this.mapService.points[this.mapService.points.length - 1].wspolrzednaY);
       const waypoint: google.maps.DirectionsWaypoint[] = [];
 
       for (let i = 1; i < this.mapService.points.length - 1; i++) {
         waypoint.push({
-          location: new google.maps.LatLng(this.mapService.points[i].WspolrzednaX, this.mapService.points[i].WspolrzednaY),
+          location: new google.maps.LatLng(this.mapService.points[i].wspolrzednaX, this.mapService.points[i].wspolrzednaY),
           stopover: true,
         });
       }
@@ -98,6 +101,18 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       this.directionsService.route(request, (response: any, status: any) => {
         if (status === 'OK') {
           this.directionsRenderer.setDirections(response);
+          const legs = response.routes[0].legs;
+          this.mapService.legDurations = legs.map((leg: any) => {
+            const legDurationSeconds = leg.duration.value;
+            
+            // Konwertuj sekundy na format hh:mm:ss
+            const hours = Math.floor(legDurationSeconds / 3600);
+            const minutes = Math.floor((legDurationSeconds % 3600) / 60);
+            const seconds = legDurationSeconds % 60;
+    
+            return `${hours} godz. ${minutes} min. ${seconds} sek.`;
+          });
+          this.mapService.routeLength = legs.reduce((total:number, leg:any) => total + leg.distance.value, 0) / 1000; // Convert to kilometers
         } else {
           console.error('Error calculating route:', status);
           console.log(this.mapService.points);

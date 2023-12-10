@@ -1,0 +1,16 @@
+/* about-me.component.css or your preferred stylesheet */
+
+/* Container styling */
+.user-details {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Message styling */
+  .user-not-found {
+    color: #f00; /* Red color for the not found message */
+    margin: 20px;
+  }
+  
