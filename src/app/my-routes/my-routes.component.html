@@ -1,6 +1,6 @@
 <!-- my-routes.component.html -->
 <div *ngIf="trasy.length > 0">
-  <h2>My Routes</h2>
+  <h2>Moje trasy</h2>
   <ul>
     <li *ngFor="let trasa of trasy" class="route-item">
       <!-- Display only name and description -->
@@ -18,8 +18,8 @@
         <div *ngIf="!trasa.Atrakcje || trasa.Atrakcje.length === 0">
           <p>No attractions available for this route</p>
         </div>
-        <button class="edit-button">Edytuj</button>
-        <button class="remove-button">Usuń</button>
+        <button class="edit-button" (click)="editRoute(trasa)">Edytuj</button>
+        <button class="remove-button" (click)="removeTrasa(trasa)">Usuń</button>
       </div>
     </li>
   </ul>

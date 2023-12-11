@@ -12,11 +12,15 @@ export class MapService {
   constructor(
     private authService: AuthService,
   ) { }
+  routeName:string = '';
+  routeDescription:string = '';
   routeLength: number = 0;
   points: Atrakcja[] = [];
   markerClickSubject = new Subject<number>();
   mapComponentDrawRouteSubject = new Subject<void>();
   legDurations: string[] = [];
+  edition: boolean = false;
+  idTrasa: number = 0;
 
   
   // Metoda do powiadamiania o kliknięciu znacznika
@@ -24,19 +28,21 @@ export class MapService {
     this.markerClickSubject.next(index);
   }
 
-  addAllPoints(nazwa: string, opis: string) {
+  addAllPoints() {
     // Skopiuj wszystkie punkty do innej tablicy (możesz użyć .slice() lub innych metod)
+    if(!this.edition){
     const allPoints = this.points.slice();
-    const trasa = new Trasa(0,nazwa, opis, allPoints);
+    const trasa = new Trasa(0,this.routeName,this.routeDescription, allPoints);
     console.log(trasa);
     const email = sessionStorage.getItem('email') ?? '';
     console.log(email);
-    let idUser =10;
     this.authService.getUserByEmail(email).subscribe(
       response=>{
         this.authService.setTrasainUser(response[0].id, trasa);
       }
+      //dodać obsługe wyjątku
     );
+    }
     // constructor(private idTrasa: number,
     //   private nazwa: string,
     //   private opis: string,
@@ -44,9 +50,17 @@ export class MapService {
     
     // Zeruj listę punktów
     this.points = [];
+    this.routeName='';
+    this.routeDescription='';
+    this.idTrasa = 0;
+    this.edition = false;
+    this.routeLength = 0;
+    this.legDurations = [];
+    this.drawRoute();
+
 
     // Dodaj wszystkie punkty do tablicy (np. możesz przekazać je do innego serwisu, komponentu, itp.)
-    console.log('All points:', allPoints);
+    //console.log('All points:', allPoints);
   }
 
   drawRoute() {
@@ -116,8 +130,30 @@ export class MapService {
     });
     
   }
-  
-  
 
-  
+  editing(trasa:Trasa){
+    this.points = trasa.Atrakcje;
+    this.routeName=trasa.Nazwa;
+    this.routeDescription=trasa.Opis;
+    this.edition = true;
+    this.idTrasa = trasa.id;
+    console.log('Editing route:', trasa);
+    this.drawRoute();
+  }
+
+  saveEdition(){
+
+      const allPoints = this.points.slice();
+      const trasa = new Trasa(this.idTrasa,this.routeName,this.routeDescription, allPoints);
+      console.log(trasa);
+      const email = sessionStorage.getItem('email') ?? '';
+      this.authService.getUserByEmail(email).subscribe(
+        response=>{
+      this.authService.saveEdition(response[0].id, trasa);
+        }
+      );
+      this.addAllPoints();
+      
+  }
+
 }

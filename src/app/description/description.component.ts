@@ -11,8 +11,8 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class DescriptionComponent {
   constructor(public mapService: MapService) {}
-  routeName:string = '';
-  routeDescription:string = '';
+  
+  
   addAddressInput() {
     // Add a new empty point to the map service
     const newPoint = new Atrakcja(0, '', 0, 0);
@@ -52,11 +52,9 @@ export class DescriptionComponent {
   }
 
   addAllPoints() {
-    if (this.routeName && this.routeDescription) {
-      this.mapService.addAllPoints(this.routeName, this.routeDescription);
+    if (this.mapService.routeName && this.mapService.routeDescription) {
+      this.mapService.addAllPoints();
       this.mapService.drawRoute();
-      this.routeName='';
-      this.routeDescription='';
     }
   }
 
@@ -86,6 +84,16 @@ export class DescriptionComponent {
   updateName(event: any, index: number) {
     // Update the name property for the corresponding point
     this.points[index].nazwa = event.target.value;
+    this.updateCoordinatesOnNameChange(index);
+  }
+
+  SaveEdition(){
+    this.mapService.saveEdition();
+
+  }
+
+  Cancel(){
+    this.mapService.addAllPoints();
   }
   
   

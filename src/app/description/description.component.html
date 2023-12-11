@@ -3,7 +3,7 @@
 <form #routeForm="ngForm">
   <div>
     <label for="routeName">Nazwa Trasy:</label>
-    <input type="text" id="routeName" name="routeName" [(ngModel)]="routeName" required class="input-field">
+    <input type="text" id="routeName" name="routeName" [(ngModel)]="this.mapService.routeName" required class="input-field">
   </div>
   <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
     <div *ngFor="let point of points; let i = index" class="ngFor-container point-container" cdkDrag>
@@ -17,14 +17,14 @@
         <span>{{ point.wspolrzednaX }}</span>
         Y:
         <span>{{ point.wspolrzednaY }}</span>
-        <button (click)="onMarkerClick(i)" class="remove-button">Remove</button>
+        <button (click)="onMarkerClick(i)" class="remove-button">Usuń</button>
       </p>
     </div>
   </div>
 
   <div>
     <label for="routeDescription">Opis Trasy:</label>
-    <input type="text" id="routeDescription" name="routeDescription" [(ngModel)]="routeDescription" required class="input-field">
+    <input type="text" id="routeDescription" name="routeDescription" [(ngModel)]="this.mapService.routeDescription" required class="input-field">
   </div>
   <!-- Add this under the route description input -->
 <div>
@@ -39,7 +39,9 @@
 
 
   <div>
-    <button (click)="addAllPoints()" [disabled]="!routeForm.form.valid" class="add-button">Zapisz Trase</button>
+    <button *ngIf="!this.mapService.edition" (click)="addAllPoints()" [disabled]="!routeForm.form.valid" class="add-button">Zapisz Trase</button>
+    <button *ngIf="this.mapService.edition" (click)="SaveEdition()" [disabled]="!routeForm.form.valid" class="add-button">Zapisz Edycje</button>
+    <button *ngIf="this.mapService.edition" (click)="Cancel()" class="add-button">Anuluj</button>
     <button (click)="addAddressInput()" class="add-button">Dodaj Punkt</button>
   </div>
 </form>

@@ -6,10 +6,10 @@ export class Trasa {
         private opis: string,
         private atrakcje: Atrakcja[]) {}
   
-    set IdTrasa(idTrasa: number) {
+    set id(idTrasa: number) {
         this.idTrasa = idTrasa;
     }
-    get IdTrasa(): number {
+    get id(): number {
         return this.idTrasa;
     }
   

@@ -49,6 +49,9 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
     this.markerClickSubscription.unsubscribe();
     // Wyczyszczenie listy punktów przy zniszczeniu komponentu
     this.mapService.points = [];
+    this.mapService.routeName = '';
+    this.mapService.routeDescription ='';
+    this.mapService.edition = false;
     
   }
 
@@ -66,6 +69,7 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
     this.map.addListener('click', (event: any) => {
       this.onMapClick(event);
     });
+    this.drawRoute();
   }
 
   drawRoute() {

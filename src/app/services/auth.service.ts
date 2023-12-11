@@ -63,5 +63,36 @@ export class AuthService {
     return this.http.get<User>(`${this.baseUrl}/users/${userId}`);
   }
 
+  removeTrasaFromUser(trasaId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/ulubioneTrasy/${trasaId}`);
+  }
+
+  saveEdition(userId:number, trasa:Trasa){
+
+    const updateAtrakcje = trasa.Atrakcje.map(element => ({
+      idAtrakcja: element.idAtrakcja,
+      nazwa: element.nazwa,
+      wspolrzednaX: element.wspolrzednaX,
+      wspolrzednaY: element.wspolrzednaY,
+    }));
+
+    const updatedTrasy = {
+      Nazwa: trasa.Nazwa,
+      Opis: trasa.Opis,
+      Atrakcje: updateAtrakcje,
+      user_id: userId,
+    };
+
+    return this.http.put(`${this.baseUrl}/ulubioneTrasy/${trasa.id}`,updatedTrasy).subscribe(
+      () => {
+        console.log('Favorite route set successfully');
+      },
+      error => {
+        console.error('Error setting favorite route:', error);
+      }
+    );
+
+  }
+
 
 }

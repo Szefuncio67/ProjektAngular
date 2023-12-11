@@ -82,41 +82,9 @@
       "id": 3
     },
     {
-      "Nazwa": "d",
-      "Opis": "d",
-      "Atrakcje": [
-        {
-          "idAtrakcja": 0,
-          "nazwa": "Szyszki, Polska 08",
-          "wspolrzednaX": 51.94041267143397,
-          "wspolrzednaY": 22.07816870796547
-        },
-        {
-          "idAtrakcja": 1,
-          "nazwa": "14 Straße zur Försterei Zossen, Niemcy 15806",
-          "wspolrzednaX": 52.21050963747945,
-          "wspolrzednaY": 13.552778082965471
-        },
-        {
-          "idAtrakcja": 2,
-          "nazwa": "Eiterfeld, Niemcy 36132",
-          "wspolrzednaX": 50.73250006563704,
-          "wspolrzednaY": 9.861371832965471
-        }
-      ],
-      "user_id": "4",
-      "id": 4
-    },
-    {
       "Nazwa": "tt",
       "Opis": "teasa",
       "Atrakcje": [
-        {
-          "idAtrakcja": 0,
-          "nazwa": "gen. Józefa Bema 95/84",
-          "wspolrzednaX": 50.0650967,
-          "wspolrzednaY": 18.4130449
-        },
         {
           "idAtrakcja": 1,
           "nazwa": "13 Olsztyńska Otwock, Polska 05-400",
@@ -132,6 +100,64 @@
       ],
       "user_id": "4",
       "id": 5
+    },
+    {
+      "Nazwa": "tt",
+      "Opis": "test",
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "Wysocin, Polska 87-704",
+          "wspolrzednaX": 52.67142813049976,
+          "wspolrzednaY": 18.8267614125
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "Flechtingen, Niemcy",
+          "wspolrzednaX": 52.2967646383855,
+          "wspolrzednaY": 11.180277037500002
+        },
+        {
+          "idAtrakcja": 2,
+          "nazwa": "Cham, Niemcy 93413",
+          "wspolrzednaX": 49.18354421017524,
+          "wspolrzednaY": 12.674417662500002
+        }
+      ],
+      "user_id": "4",
+      "id": 6
+    },
+    {
+      "Nazwa": "update",
+      "Opis": "update",
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "Zielonka, Polska 05-220",
+          "wspolrzednaX": 52.2967646383855,
+          "wspolrzednaY": 21.13828444766865
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "Berlin, Niemcy",
+          "wspolrzednaX": 52.4577254800829,
+          "wspolrzednaY": 13.18418288516865
+        },
+        {
+          "idAtrakcja": 2,
+          "nazwa": "Dobřejovice, Czechy 251 01",
+          "wspolrzednaX": 49.9812987304006,
+          "wspolrzednaY": 14.599222484110452
+        },
+        {
+          "idAtrakcja": 3,
+          "nazwa": "Komarno, Ukraina 81563",
+          "wspolrzednaX": 49.64100094354936,
+          "wspolrzednaY": 23.695902171610452
+        }
+      ],
+      "user_id": 4,
+      "id": 7
     }
   ]
 }

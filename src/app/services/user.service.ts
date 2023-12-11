@@ -29,4 +29,12 @@ export class UserService {
   getTrasa(): Observable<Trasa[] | null> {
     return this.trasySubject.asObservable();
   }
+
+  removeTrasa(trasaId: number): void {
+    const currentTrasy = this.trasySubject.value || [];
+    const updatedTrasy = currentTrasy.filter(trasa => trasa.id !== trasaId);
+    this.trasa = updatedTrasy;
+    this.trasySubject.next(updatedTrasy);
+  }
+
 }
