@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
 import { Trasa } from '../interfaces/trasa';
-import { Atrakcja } from '../interfaces/atrakcja';
 
 @Injectable({
   providedIn: 'root'

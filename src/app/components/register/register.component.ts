@@ -15,9 +15,9 @@ import { Trasa } from 'src/app/interfaces/trasa';
 export class RegisterComponent {
 
   registerForm = this.fb.group({
-    nazwa: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
-    email: ['', [Validators.required, Validators.email]],
-    haslo: ['', Validators.required],
+    nazwa: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/), Validators.maxLength(30)]],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(50), Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
+    haslo: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,30}$/)]],
     confirmPassword: ['', Validators.required]
   }, {
     validators: passwordMatchValidator

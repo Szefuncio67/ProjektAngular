@@ -1,5 +1,11 @@
 <div class="flex-container">
-    <app-description class="app-description"></app-description>
+  <div class="left-section">
+    <app-description class="app-description" [(nazwa)]="RNazwa"></app-description>
+  </div>
+  <div class="right-section">
+    <div>
+      <p>{{ RNazwa | uppercase }}</p>
+    </div>
     <app-map class="app-map"></app-map>
   </div>
-  
+</div>

@@ -17,6 +17,7 @@
       >
         <div *ngIf="nazwa.errors?.['required']">Name is required.</div>
         <div *ngIf="nazwa.errors?.['pattern']">Enter a valid Name</div>
+        <div *ngIf="nazwa.invalid">Name max: 30 letters</div>
       </small>
     </div>
     <div class="field">
@@ -34,7 +35,7 @@
         class="block p-error"
       >
         <div *ngIf="email.errors?.['required']">Email is required.</div>
-        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+        <div *ngIf="email.errors?.['pattern']">Email should be valid</div>
       </small>
     </div>
     <div class="field">
@@ -51,7 +52,8 @@
         *ngIf="haslo.invalid && (haslo.dirty || haslo.touched)"
         class="block p-error"
       >
-        <div *ngIf="haslo.errors?.['required']">haslo is required.</div>
+        <div *ngIf="haslo.errors?.['required']">Password is required.</div>
+        <div *ngIf="haslo.errors?.['pattern']"> Required: lowercase, uppercase, number, and special character</div>
       </small>
     </div>
     <div class="field">

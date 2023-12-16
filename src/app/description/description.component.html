@@ -1,16 +1,33 @@
 <!-- description.component.html -->
 
-<form #routeForm="ngForm">
+<form [formGroup]="myForm">
   <div>
     <label for="routeName">Nazwa Trasy:</label>
-    <input type="text" id="routeName" name="routeName" [(ngModel)]="this.mapService.routeName" required class="input-field">
+    <input
+      (ngModel)="nazwa"
+      type="text"
+      formControlName="routeName"
+      id="routeName"
+      name="routeName"
+      required
+      maxlength="30"
+      [placeholder]="nazwa"
+      class="input-field"
+      (input)="updateTName($event)"
+    />
   </div>
   <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div *ngFor="let point of points; let i = index" class="ngFor-container point-container" cdkDrag>
+    <div *ngFor="let point of points; let i = index" class="ngFor-container point-container" cdkDrag >
       <p>
         Adres:
-        <input type="text" [value]="point.nazwa" (input)="updateName($event, i)"
-          name="markerName{{i}}" placeholder="Marker Name" class="input-field">
+        <input
+          type="text"
+          [value]="point.nazwa"
+          (input)="updateName($event, i)"
+          name="markerName{{i}}"
+          placeholder="Marker Name"
+          class="input-field"
+        />
       </p>
       <p>
         X:
@@ -24,23 +41,43 @@
 
   <div>
     <label for="routeDescription">Opis Trasy:</label>
-    <input type="text" id="routeDescription" name="routeDescription" [(ngModel)]="this.mapService.routeDescription" required class="input-field">
+    <textarea
+      id="routeDescription"
+      formControlName="routeDescription"
+      name="routeDescription"
+      maxlength="200"
+      required
+      class="input-field"
+    ></textarea>
   </div>
   <!-- Add this under the route description input -->
-<div>
-  <label for="routeLength">Długość Trasy (km):</label>
-  <span>{{ this.mapService.routeLength }}</span>
-</div>
+  <div>
+    <label for="routeLength">Długość Trasy (km):</label>
+    <span>{{ this.mapService.routeLength }}</span>
+  </div>
 
-<div *ngFor="let legDuration of this.mapService.legDurations; let i = index">
-  <label for="legDuration{{ i }}">Czas podróży między punktem {{ i + 1 }} a punktem {{ i + 2 }}:</label>
-  <span>{{ legDuration }}</span>
-</div>
-
+  <div *ngFor="let legDuration of this.mapService.legDurations; let i = index" [appHighlight]="{ current: i, next: i + 1 }">
+    <label for="legDuration{{ i }}">Czas podróży między punktem {{ i + 1 }} a punktem {{ i + 2 }}:</label>
+    <span>{{ legDuration }}</span>
+  </div>
 
   <div>
-    <button *ngIf="!this.mapService.edition" (click)="addAllPoints()" [disabled]="!routeForm.form.valid" class="add-button">Zapisz Trase</button>
-    <button *ngIf="this.mapService.edition" (click)="SaveEdition()" [disabled]="!routeForm.form.valid" class="add-button">Zapisz Edycje</button>
+    <button
+      *ngIf="!this.mapService.edition"
+      (click)="addAllPoints()"
+      [disabled]="!myForm.valid || this.mapService.points.length == 0"
+      class="add-button"
+    >
+      Zapisz Trase
+    </button>
+    <button
+      *ngIf="this.mapService.edition"
+      (click)="SaveEdition()"
+      [disabled]="!myForm.valid || this.mapService.points.length == 0"
+      class="add-button"
+    >
+      Zapisz Edycje
+    </button>
     <button *ngIf="this.mapService.edition" (click)="Cancel()" class="add-button">Anuluj</button>
     <button (click)="addAddressInput()" class="add-button">Dodaj Punkt</button>
   </div>

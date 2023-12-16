@@ -57,6 +57,7 @@ export class MyRoutesComponent implements OnInit {
     );
   }
   editRoute(trasa: Trasa): void {
+    this.mapService.setEditedRoute(trasa);
     // Navigate to the desired route first
     this.router.navigateByUrl('').then(() => {
       // Perform the editRoute logic after the navigation is complete

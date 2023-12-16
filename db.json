@@ -2,8 +2,8 @@
   "users": [
     {
       "nazwa": "a",
-      "email": "a@w",
-      "haslo": "a",
+      "email": "z@wp.pl",
+      "haslo": "Qq1!w",
       "ulubioneTrasy": [],
       "id": 1
     },
@@ -26,6 +26,27 @@
       "haslo": "s",
       "ulubioneTrasy": [],
       "id": 4
+    },
+    {
+      "nazwa": "a",
+      "email": "w@wp.pl",
+      "haslo": "e",
+      "ulubioneTrasy": [],
+      "id": 5
+    },
+    {
+      "nazwa": "",
+      "email": "h@w",
+      "haslo": "h",
+      "ulubioneTrasy": [],
+      "id": 6
+    },
+    {
+      "nazwa": "a",
+      "email": "a@wp.pl",
+      "haslo": "Qq1!w",
+      "ulubioneTrasy": [],
+      "id": 7
     }
   ],
   "ulubioneTrasy": [
@@ -56,108 +77,345 @@
       "id": 2
     },
     {
-      "Nazwa": "w",
-      "Opis": "w",
+      "Nazwa": "Trasa A",
+      "Opis": "Podstawowa trasa zwiedzania",
       "Atrakcje": [
-        {
-          "idAtrakcja": 0,
-          "nazwa": "Oßling, Niemcy",
-          "wspolrzednaX": 51.36787919612872,
-          "wspolrzednaY": 14.124067145465471
-        },
-        {
-          "idAtrakcja": 1,
-          "nazwa": "Kulczyn, Polska 26-704",
-          "wspolrzednaX": 51.340435143101075,
-          "wspolrzednaY": 21.72660620796547
-        },
-        {
-          "idAtrakcja": 2,
-          "nazwa": "Javorník, Czechy 696 74",
-          "wspolrzednaX": 48.83168409726381,
-          "wspolrzednaY": 17.55180152046547
-        }
+          {
+              "idAtrakcja": 0,
+              "nazwa": "Muzeum Narodowe",
+              "wspolrzednaX": 52.235132514641916,
+              "wspolrzednaY": 21.00559058296547
+          },
+          {
+              "idAtrakcja": 1,
+              "nazwa": "Zamek Królewski",
+              "wspolrzednaX": 52.25019716540478,
+              "wspolrzednaY": 21.01064917671547
+          },
+          {
+              "idAtrakcja": 2,
+              "nazwa": "Park Łazienkowski",
+              "wspolrzednaX": 52.21549650209158,
+              "wspolrzednaY": 20.98540308296547
+          }
       ],
       "user_id": "1",
       "id": 3
-    },
-    {
-      "Nazwa": "tt",
-      "Opis": "teasa",
-      "Atrakcje": [
+  },
+  {
+    "Nazwa": "Trasa B",
+    "Opis": "Spacer po historycznej dzielnicy",
+    "Atrakcje": [
         {
-          "idAtrakcja": 1,
-          "nazwa": "13 Olsztyńska Otwock, Polska 05-400",
-          "wspolrzednaX": 52.102666931888116,
-          "wspolrzednaY": 21.24320777046547
+            "idAtrakcja": 0,
+            "nazwa": "Stare Miasto",
+            "wspolrzednaX": 52.250132514641916,
+            "wspolrzednaY": 20.99559058296547
         },
         {
-          "idAtrakcja": 2,
-          "nazwa": "19 DC116 Sechereşa, Rumunia 447296",
-          "wspolrzednaX": 47.45358322236601,
-          "wspolrzednaY": 22.73734839546547
-        }
-      ],
-      "user_id": "4",
-      "id": 5
-    },
-    {
-      "Nazwa": "tt",
-      "Opis": "test",
-      "Atrakcje": [
+            "idAtrakcja": 1,
+            "nazwa": "Plac Zamkowy",
+            "wspolrzednaX": 52.24519716540478,
+            "wspolrzednaY": 21.01064917671547
+        },
         {
+            "idAtrakcja": 2,
+            "nazwa": "Katedra Świętego Jana",
+            "wspolrzednaX": 52.23549650209158,
+            "wspolrzednaY": 20.98040308296547
+        }
+    ],
+    "user_id": "1",
+    "id": 4
+},
+{
+  "Nazwa": "Trasa C",
+  "Opis": "Szlak parkowy",
+  "Atrakcje": [
+      {
           "idAtrakcja": 0,
-          "nazwa": "Wysocin, Polska 87-704",
-          "wspolrzednaX": 52.67142813049976,
-          "wspolrzednaY": 18.8267614125
-        },
-        {
+          "nazwa": "Park Wilanowski",
+          "wspolrzednaX": 52.165132514641916,
+          "wspolrzednaY": 21.08559058296547
+      },
+      {
           "idAtrakcja": 1,
-          "nazwa": "Flechtingen, Niemcy",
-          "wspolrzednaX": 52.2967646383855,
-          "wspolrzednaY": 11.180277037500002
-        },
-        {
+          "nazwa": "Łazienki Królewskie",
+          "wspolrzednaX": 52.21519716540478,
+          "wspolrzednaY": 21.02064917671547
+      },
+      {
           "idAtrakcja": 2,
-          "nazwa": "Cham, Niemcy 93413",
-          "wspolrzednaX": 49.18354421017524,
-          "wspolrzednaY": 12.674417662500002
-        }
-      ],
-      "user_id": "4",
-      "id": 6
-    },
-    {
-      "Nazwa": "update",
-      "Opis": "update",
-      "Atrakcje": [
-        {
+          "nazwa": "Park Ujazdowski",
+          "wspolrzednaX": 52.22549650209158,
+          "wspolrzednaY": 21.04540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 5
+},
+{
+  "Nazwa": "Trasa Zwiedzania",
+  "Opis": "Podstawowa trasa zwiedzania",
+  "Atrakcje": [
+      {
           "idAtrakcja": 0,
-          "nazwa": "Zielonka, Polska 05-220",
-          "wspolrzednaX": 52.2967646383855,
-          "wspolrzednaY": 21.13828444766865
-        },
-        {
+          "nazwa": "Muzeum Narodowe",
+          "wspolrzednaX": 52.235132514641916,
+          "wspolrzednaY": 21.00559058296547
+      },
+      {
           "idAtrakcja": 1,
-          "nazwa": "Berlin, Niemcy",
-          "wspolrzednaX": 52.4577254800829,
-          "wspolrzednaY": 13.18418288516865
-        },
-        {
+          "nazwa": "Zamek Królewski",
+          "wspolrzednaX": 52.25019716540478,
+          "wspolrzednaY": 21.01064917671547
+      },
+      {
           "idAtrakcja": 2,
-          "nazwa": "Dobřejovice, Czechy 251 01",
-          "wspolrzednaX": 49.9812987304006,
-          "wspolrzednaY": 14.599222484110452
-        },
-        {
-          "idAtrakcja": 3,
-          "nazwa": "Komarno, Ukraina 81563",
-          "wspolrzednaX": 49.64100094354936,
-          "wspolrzednaY": 23.695902171610452
-        }
-      ],
-      "user_id": 4,
-      "id": 7
-    }
+          "nazwa": "Park Łazienkowski",
+          "wspolrzednaX": 52.21549650209158,
+          "wspolrzednaY": 20.98540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 6
+},
+{
+  "Nazwa": "Spacer Historyczny",
+  "Opis": "Spacer po historycznej dzielnicy",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Stare Miasto",
+          "wspolrzednaX": 52.250132514641916,
+          "wspolrzednaY": 20.99559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Plac Zamkowy",
+          "wspolrzednaX": 52.24519716540478,
+          "wspolrzednaY": 21.01064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Katedra Świętego Jana",
+          "wspolrzednaX": 52.23549650209158,
+          "wspolrzednaY": 20.98040308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 7
+},
+{
+  "Nazwa": "Szlak Parkowy",
+  "Opis": "Szlak parkowy",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Park Wilanowski",
+          "wspolrzednaX": 52.165132514641916,
+          "wspolrzednaY": 21.08559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Łazienki Królewskie",
+          "wspolrzednaX": 52.21519716540478,
+          "wspolrzednaY": 21.02064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Park Ujazdowski",
+          "wspolrzednaX": 52.22549650209158,
+          "wspolrzednaY": 21.04540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 8
+},
+{
+  "Nazwa": "Trasa Muralowa",
+  "Opis": "Śladem najpiękniejszych murali",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Mural Sztuka uliczna",
+          "wspolrzednaX": 52.220132514641916,
+          "wspolrzednaY": 20.99059058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Mural Kolorowe Widoki",
+          "wspolrzednaX": 52.21519716540478,
+          "wspolrzednaY": 21.00564917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Mural Street Art",
+          "wspolrzednaX": 52.21049650209158,
+          "wspolrzednaY": 20.98040308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 9
+},
+{
+  "Nazwa": "Trasa Smaków",
+  "Opis": "Kulinarna podróż po mieście",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Restauracja Pod Słonkiem",
+          "wspolrzednaX": 52.240132514641916,
+          "wspolrzednaY": 21.01559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Kawiarnia Aromatyczna",
+          "wspolrzednaX": 52.23519716540478,
+          "wspolrzednaY": 21.03064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Lodziarnia Rajskie Lody",
+          "wspolrzednaX": 52.23049650209158,
+          "wspolrzednaY": 21.00540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 10
+},
+{
+  "Nazwa": "Trasa Nocnego Życia",
+  "Opis": "Odkryj miejsca pełne życia nocnego",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Klub Muzyczny SoundLab",
+          "wspolrzednaX": 52.255132514641916,
+          "wspolrzednaY": 20.98559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Bar Koktajlowy NightShake",
+          "wspolrzednaX": 52.25019716540478,
+          "wspolrzednaY": 21.00064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Klub Taneczny Energy",
+          "wspolrzednaX": 52.24549650209158,
+          "wspolrzednaY": 20.97540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 11
+},
+{
+  "Nazwa": "Trasa Przyrodnicza",
+  "Opis": "Spotkaj się z naturą",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Ogród Botaniczny",
+          "wspolrzednaX": 52.215132514641916,
+          "wspolrzednaY": 21.05559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Park Skaryszewski",
+          "wspolrzednaX": 52.21019716540478,
+          "wspolrzednaY": 21.07064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Rezerwat Przyrody Las Kabacki",
+          "wspolrzednaX": 52.20549650209158,
+          "wspolrzednaY": 21.04540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 12
+},
+{
+  "Nazwa": "Trasa Architektoniczna",
+  "Opis": "Wędrówka po ciekawych budowlach",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Pałac Kultury i Nauki",
+          "wspolrzednaX": 52.230132514641916,
+          "wspolrzednaY": 20.99559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Nowa Zbrojownia",
+          "wspolrzednaX": 52.22519716540478,
+          "wspolrzednaY": 21.01064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Stadion Narodowy",
+          "wspolrzednaX": 52.22049650209158,
+          "wspolrzednaY": 20.98540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 13
+},
+{
+  "Nazwa": "Trasa Dla Rodzin",
+  "Opis": "Radosna podróż dla całej rodziny",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Park Linowy Adventure",
+          "wspolrzednaX": 52.240132514641916,
+          "wspolrzednaY": 21.02559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Zoo Warszawa",
+          "wspolrzednaX": 52.23519716540478,
+          "wspolrzednaY": 21.04064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Plac Zabaw Skrzatów",
+          "wspolrzednaX": 52.23049650209158,
+          "wspolrzednaY": 21.01540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 14
+},
+{
+  "Nazwa": "Trasa Kulturalna",
+  "Opis": "Wizyta w najważniejszych miejscach kultury",
+  "Atrakcje": [
+      {
+          "idAtrakcja": 0,
+          "nazwa": "Teatr Wielki",
+          "wspolrzednaX": 52.255132514641916,
+          "wspolrzednaY": 20.98559058296547
+      },
+      {
+          "idAtrakcja": 1,
+          "nazwa": "Muzeum Sztuki Nowoczesnej",
+          "wspolrzednaX": 52.25019716540478,
+          "wspolrzednaY": 21.00064917671547
+      },
+      {
+          "idAtrakcja": 2,
+          "nazwa": "Filharmonia Narodowa",
+          "wspolrzednaX": 52.24549650209158,
+          "wspolrzednaY": 20.97540308296547
+      }
+  ],
+  "user_id": "1",
+  "id": 15
+}
+
+
+  
   ]
 }

@@ -10,6 +10,7 @@ import { MapService } from 'src/app/services/map.service';
  
 })
 export class HomeComponent {
+  RNazwa: string = 'Twoja nazwa trasy';
   constructor(public mapService: MapService) {}
   
 }

@@ -21,6 +21,7 @@ export class MapService {
   legDurations: string[] = [];
   edition: boolean = false;
   idTrasa: number = 0;
+  currentEditedRoute: Trasa | null = null;
 
   
   // Metoda do powiadamiania o kliknięciu znacznika
@@ -28,11 +29,11 @@ export class MapService {
     this.markerClickSubject.next(index);
   }
 
-  addAllPoints() {
+  addAllPoints(routeName: string, routeDescription: string) {
     // Skopiuj wszystkie punkty do innej tablicy (możesz użyć .slice() lub innych metod)
     if(!this.edition){
     const allPoints = this.points.slice();
-    const trasa = new Trasa(0,this.routeName,this.routeDescription, allPoints);
+    const trasa = new Trasa(0,routeName,routeDescription, allPoints);
     console.log(trasa);
     const email = sessionStorage.getItem('email') ?? '';
     console.log(email);
@@ -141,10 +142,16 @@ export class MapService {
     this.drawRoute();
   }
 
-  saveEdition(){
+
+// Dodaj metodę do ustawiania aktualnie edytowanej trasy
+  setEditedRoute(trasa: Trasa | null) {
+    this.currentEditedRoute = trasa;
+  }
+
+  saveEdition(routeName: string, routeDescription: string){
 
       const allPoints = this.points.slice();
-      const trasa = new Trasa(this.idTrasa,this.routeName,this.routeDescription, allPoints);
+      const trasa = new Trasa(this.idTrasa,routeName,routeDescription, allPoints);
       console.log(trasa);
       const email = sessionStorage.getItem('email') ?? '';
       this.authService.getUserByEmail(email).subscribe(
@@ -152,7 +159,7 @@ export class MapService {
       this.authService.saveEdition(response[0].id, trasa);
         }
       );
-      this.addAllPoints();
+      this.addAllPoints(routeName, routeDescription);
       
   }
 

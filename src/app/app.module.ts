@@ -25,6 +25,9 @@ import { UserComponent } from './user/user.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { MyRoutesComponent } from './my-routes/my-routes.component';
 import { FavoriteRoutesComponent } from './favorite-routes/favorite-routes.component';
+import { HighlightDirective } from './highlight.directive';
+import { MapService } from './services/map.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
     declarations: [
@@ -38,8 +41,9 @@ import { FavoriteRoutesComponent } from './favorite-routes/favorite-routes.compo
         AboutMeComponent,
         MyRoutesComponent,
         FavoriteRoutesComponent,
+        HighlightDirective,
     ],
-    providers: [MessageService],
+    providers: [MessageService, MapService, AuthService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
