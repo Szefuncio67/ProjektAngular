@@ -1,4 +1,3 @@
-/* Styles for the form layout */
 form {
   display: flex;
   flex-direction: column;
@@ -9,17 +8,14 @@ form {
   margin-right: 20px;
 }
 
-/* Remove margin and padding from the form elements for better spacing */
 form div {
   margin: 0;
   padding: 0;
 }
 
-/* Style for the highlighted duration */
-/* Add specific styles for the length route */
 .lenghtRoute {
   font-weight: bold;
-  color: #333; /* Dark gray color for the length route label */
+  color: #333;
 }
 .routeDescription{
   font-weight: bold;
@@ -30,15 +26,14 @@ form div {
   color: #333;
 }
 
-/* Style for the highlighted duration within ngFor loop */
 .appHighlightx p {
-  font-weight: normal; /* Reset font weight for paragraphs inside appHighlightx */
-  color: #555; /* Dark gray color for leg durations */
-  margin: 5px 0; /* Add margin for better spacing */
+  font-weight: normal; 
+  color: #555; 
+  margin: 5px 0; 
 }
 
 
-/* Additional styles for input fields, buttons, etc. */
+
 .input-field {
   width: calc(100% - 20px);
   padding: 10px;
@@ -71,34 +66,32 @@ form div {
   color: #ffffff;
 }
 
-/* Add styles for the point container */
+
 .point-container {
   border: 1px solid #ced4da;
   border-radius: 4px;
-  background-color: #f0f0f0; /* Light gray background for point containers */
-  margin-bottom: 0; /* Remove margin between point containers */
+  background-color: #f0f0f0;
+  margin-bottom: 0;
   padding: 10px;
 }
 
-/* Different colors for each point container */
+
 .point-container:nth-child(odd) {
-  background-color: #e0e0e0; /* Slightly darker gray for odd-numbered containers */
+  background-color: #e0e0e0; 
 }
 
 .point-container:nth-child(even) {
-  background-color: #d1d1d1; /* Slightly darker gray for even-numbered containers */
+  background-color: #d1d1d1;
 }
 
 .point-container p {
-  margin: 0; /* Remove default margin for paragraphs inside the point container */
+  margin: 0; 
 }
 
-/* Add any other global styles as needed */
-/* Add this style to highlight the points */
 .point-container.highlighted-leg {
-  background-color: #ffcc00; /* Yellow background for highlighted points */
+  background-color: #ffcc00;
 }
 
 .ngFor-container.highlighted-leg {
-  background-color: #99ccff; /* Light blue background for highlighted ngFor containers */
+  background-color: #99ccff; 
 }

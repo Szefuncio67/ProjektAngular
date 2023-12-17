@@ -1,5 +1,4 @@
-/* Styles for the map container */
 .mapElement {
-  width: 100%; /* Occupy the full width */
+  width: 100%;
   height: 610px;
 }

@@ -1,15 +1,11 @@
-<!-- my-routes.component.html -->
 <div *ngIf="trasy.length > 0" class="my-routes-container">
   <h2>Moje trasy</h2>
   <input type="text" placeholder="Szukaj tras..." (input)="updateSearchTerm($event)" class="search-input">
   <ul>
     <li *ngFor="let trasa of trasy | filterRoutes: searchTerm" class="route-item">
-      <!-- Display only name and description -->
       <div class="route-header" (click)="toggleDetails(trasa)">
         {{ trasa.Nazwa }} - {{ trasa.Opis }}
       </div>
-      
-      <!-- Display information about attractions within the route, initially hidden -->
       <div *ngIf="trasa.showDetails" class="route-details">
         <ul *ngIf="trasa.Atrakcje && trasa.Atrakcje.length > 0" class="attractions-list">
           <li *ngFor="let atrakcja of trasa.Atrakcje" class="attraction-item">

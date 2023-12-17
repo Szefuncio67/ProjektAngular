@@ -34,16 +34,15 @@ export class MyRoutesComponent implements OnInit {
   }
 
   removeTrasa(trasa: TrasaWithDetails): void {
-    const trasaId = trasa.id; // Assuming there's an 'id' property in Trasa interface
+    const trasaId = trasa.id;
   
-    this.authService.removeTrasa(trasaId); // Remove locally first for better user experience
+    this.authService.removeTrasa(trasaId);
   
     this.authService.removeTrasaFromUser(trasaId).subscribe(
       () => {
       },
       error => {
         console.error('Error removing favorite route:', error);
-        // Revert the local changes if the server request fails
         this.authService.getTrasa().subscribe((trasy: Trasa[] | null) => {
           if (trasy !== null) {
             this.trasy = trasy.map(t => ({ ...t, showDetails: false } as TrasaWithDetails));
@@ -54,9 +53,7 @@ export class MyRoutesComponent implements OnInit {
   }
   editRoute(trasa: Trasa): void {
     this.authService.setEditedRoute(trasa);
-    // Navigate to the desired route first
     this.router.navigateByUrl('').then(() => {
-      // Perform the editRoute logic after the navigation is complete
       this.authService.editing(trasa);
     });
   }

@@ -24,11 +24,9 @@ export class DescriptionComponent {
   constructor(public authService: AuthService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    // Sprawdź, czy aktualnie edytowana trasa jest ustawiona w serwisie
     if (this.authService.currentEditedRoute && this.authService.edition) {
       const editedRoute = this.authService.currentEditedRoute;
       
-      // Ustaw dane edytowanej trasy w formularzu
       this.myForm.patchValue({
         routeName: editedRoute.Nazwa,
         routeDescription: editedRoute.Opis,
@@ -51,8 +49,6 @@ export class DescriptionComponent {
   }
 
   ngOnDestroy(): void {
-    // Perform cleanup operations here
-    // Unsubscribe from observables, clear intervals, release resources, etc.
     this.myForm.reset();
   }
 

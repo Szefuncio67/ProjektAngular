@@ -21,7 +21,6 @@ export class User {
     this._ulubioneTrasy = ulubioneTrasy;
   }
 
-  // Accessor methods for each property
   get id(): number {
     return this._idUzytkownik;
   }

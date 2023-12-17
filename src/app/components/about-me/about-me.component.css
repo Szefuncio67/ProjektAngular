@@ -1,19 +1,16 @@
-/* about-me.component.css */
-
 .about-me-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 40px; /* Zwiększenie wewnętrznego paddingu */
-  background-image: url('ścieżka/do/2o0v1tztexu11.webp'); /* Dodaj ścieżkę do swojego obrazka */
+  padding: 40px; 
+  background-image: url('ścieżka/do/2o0v1tztexu11.webp'); 
   background-size: cover;
   background-position: center;
-  color: #ffffff; /* Kolor tekstu dla kontrastu */
-  border-radius: 8px;
+  color: #ffffff; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 40px auto; /* Zwiększenie zewnętrznego marginesu */
-  max-width: 800px; /* Zwiększenie maksymalnej szerokości */
+  margin: 40px auto; 
+  max-width: 800px; 
 }
 
 .user-details {
@@ -21,6 +18,6 @@
   padding: 20px;
   border-radius: 5px;
   margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.4); /* Dodatkowe tło dla sekcji informacji o użytkowniku */
+  background-color: rgba(0, 0, 0, 0.4); 
 }
-/* Pozostałe style pozostają bez zmian */
+

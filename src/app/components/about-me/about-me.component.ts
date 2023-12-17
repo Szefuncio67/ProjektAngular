@@ -1,4 +1,3 @@
-// about-me.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../../models/user';
@@ -10,8 +9,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.css'],
 })
-// about-me.component.ts
-// about-me.component.ts
+
 export class AboutMeComponent implements OnInit {
   user: Observable<User | null> = this.authService.getUser();
   trasy: Trasa[] = [];

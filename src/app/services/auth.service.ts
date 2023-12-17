@@ -14,7 +14,6 @@ export class AuthService {
   user = this.userSubject.asObservable();
   private trasySubject = new BehaviorSubject<Trasa[] | null>(null);
   trasa: Trasa[] = [];
-
   routeName:string = '';
   routeDescription:string = '';
   routeLength: number = 0;
@@ -119,7 +118,7 @@ export class AuthService {
 
   setTrasa(trasy: Trasa[]): void {
     this.trasa = trasy;
-    this.trasySubject.next(trasy); // Emit the value
+    this.trasySubject.next(trasy);
   }
 
   getTrasa(): Observable<Trasa[] | null> {
@@ -139,7 +138,6 @@ export class AuthService {
   }
 
   addAllPoints(routeName: string, routeDescription: string) {
-    // Skopiuj wszystkie punkty do innej tablicy (możesz użyć .slice() lub innych metod)
     if(!this.edition){
     const allPoints = this.points.slice();
     const trasa = new Trasa(0,routeName,routeDescription, allPoints);
@@ -148,15 +146,9 @@ export class AuthService {
       response=>{
         this.setTrasainUser(response[0].id, trasa);
       }
-      //dodać obsługe wyjątku
+      
     );
     }
-    // constructor(private idTrasa: number,
-    //   private nazwa: string,
-    //   private opis: string,
-    //   private atrakcje: Atrakcja[]) {}
-    
-    // Zeruj listę punktów
     this.points = [];
     this.routeName='';
     this.routeDescription='';
@@ -169,7 +161,6 @@ export class AuthService {
   }
 
   drawRoute() {
-    // Emit an event to notify subscribers (e.g., MapComponent) to redraw the route
     this.mapComponentDrawRouteSubject.next();
   }
   
@@ -182,8 +173,6 @@ export class AuthService {
         if (status === google.maps.GeocoderStatus.OK) {
           if (results && results.length > 0) {
             const addressComponents = results[0].address_components;
-  
-            // Zbuduj adres bez kodu Plus Code
             let formattedAddress = '';
             for (let i = 0; i < addressComponents.length; i++) {
               const component = addressComponents[i];
@@ -192,13 +181,10 @@ export class AuthService {
               } else if (component.types.includes('locality')) {
                 formattedAddress += component.long_name;
               } else if (component.types.includes('postal_code')) {
-                // Dodaj kod pocztowy do adresu
                 formattedAddress += ' ' + component.long_name;
               } else if (component.types.includes('country')) {
-                // Dodaj kraj do adresu
                 formattedAddress += ', ' + component.long_name;
               }
-              // Dodaj dodatkowe sprawdzenia dla innych składowych, jeśli to konieczne
             }
   
             const nowyPunkt: Atrakcja = new Atrakcja(this.points.length, formattedAddress, latitude, longitude);
@@ -243,8 +229,6 @@ export class AuthService {
     this.drawRoute();
   }
 
-
-// Dodaj metodę do ustawiania aktualnie edytowanej trasy
   setEditedRoute(trasa: Trasa | null) {
     this.currentEditedRoute = trasa;
   }
