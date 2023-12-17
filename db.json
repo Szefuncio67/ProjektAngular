@@ -47,6 +47,13 @@
       "haslo": "Qq1!w",
       "ulubioneTrasy": [],
       "id": 1
+    },
+    {
+      "nazwa": "admin",
+      "email": "admin@wp.pl",
+      "haslo": "Admin1!",
+      "ulubioneTrasy": [],
+      "id": 8
     }
   ],
   "ulubioneTrasy": [

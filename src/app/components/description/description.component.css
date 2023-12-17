@@ -1,86 +1,55 @@
-/* styles.css or your preferred stylesheet */
-
-/* Flex container styling for home page */
-.flex-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-}
-
-/* description.component.css or your preferred stylesheet */
-
-/* Form styling */
+/* Styles for the form layout */
 form {
-  max-width: 400px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 80%; /* Adjust the width as needed */
+  overflow-y: auto; /* Add vertical scrollbar when content exceeds the height */
+  max-height: 850px; /* Set the maximum height for scrolling */
 }
 
-/* Input field styling */
+/* Add margin and padding to the form elements for better spacing */
+form div {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+/* Style for the highlighted duration */
+[appHighlight] {
+  font-weight: bold;
+  color: #ff4500; /* Orange color for highlighting */
+}
+
+/* Additional styles for input fields, buttons, etc. */
 .input-field {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
-/* Drop list container styling */
-.example-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Point container styling */
-.point-container {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  
-}
-
-/* Remove button styling */
-.remove-button {
-  background-color: #f44336; /* Red background */
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.remove-button:hover {
-  background-color: #d32f2f; /* Darker red on hover */
-}
-
-/* Add button styling */
 .add-button {
-  background-color: #4CAF50; /* Green background */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  background-color: #28a745; /* Green color for add button */
+  color: #ffffff;
+  padding: 8px;
   cursor: pointer;
-  border-radius: 4px;
-}
-
-.add-button:disabled {
-  background-color: #cccccc; /* Gray background for disabled state */
-  cursor: not-allowed;
+  border: none;
 }
 
 .add-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #218838; /* Darker shade on hover */
 }
 
-/* map.component.css or your preferred stylesheet */
+.remove-button {
+  background-color: #dc3545; /* Red color for remove button */
+  color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+}
 
-/* Add your styles for the map component here */
+.remove-button:hover {
+  background-color: #c82333; /* Darker shade on hover */
+}
+
 
 /* Add any other global styles as needed */
 /* Add this style to highlight the points */
@@ -91,3 +60,5 @@ form {
 .ngFor-container.highlighted-leg {
   background-color: #095b9a; /* Adjust the background color as needed */
 }
+
+

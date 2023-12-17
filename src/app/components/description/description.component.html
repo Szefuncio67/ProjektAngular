@@ -1,6 +1,6 @@
 <!-- description.component.html -->
 
-<form [formGroup]="myForm">
+<form [formGroup]="myForm" >
   <div>
     <label for="routeName">Nazwa Trasy:</label>
     <input
@@ -31,9 +31,9 @@
       </p>
       <p>
         X:
-        <span>{{ point.wspolrzednaX }}</span>
+        <span>{{ point.wspolrzednaX | number:'1.3-3' }}</span>
         Y:
-        <span>{{ point.wspolrzednaY }}</span>
+        <span>{{ point.wspolrzednaY | number:'1.3-3' }}</span>
         <button (click)="onMarkerClick(i)" class="remove-button">Usuń</button>
       </p>
     </div>

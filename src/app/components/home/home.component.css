@@ -1,18 +1,15 @@
+/* Global styles */
 .flex-container {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
 }
 
 .left-section {
   flex: 1;
-  margin: 10px;
+  width: 450px;
 }
 
 .right-section {
-  flex: 1;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex: 2;
+  width: 20px;
 }
+

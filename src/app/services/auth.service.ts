@@ -19,8 +19,8 @@ export class AuthService {
   routeDescription:string = '';
   routeLength: number = 0;
   points: Atrakcja[] = [];
-  markerClickSubject = new Subject<number>();
-  mapComponentDrawRouteSubject = new Subject<void>();
+  markerClickSubject: Subject<number> = new Subject<number>();
+  mapComponentDrawRouteSubject: Subject<void> = new Subject<void>();
   legDurations: string[] = [];
   edition: boolean = false;
   idTrasa: number = 0;
@@ -270,6 +270,10 @@ export class AuthService {
       );
       this.addAllPoints(routeName, routeDescription);
       
+  }
+  clear(){
+    this.trasySubject.next(null);
+
   }
 
 

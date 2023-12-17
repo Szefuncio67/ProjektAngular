@@ -1,20 +1,51 @@
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar styles */
 .navbar {
-    background-color: #343a40;
-  }
-  
-  .navbar-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .nav-item {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-  }
-  
-  .nav-item:hover {
-    text-decoration: underline;
-  }
+  background-color: #343a40; /* Dark background color */
+  padding: 10px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-right: 15px;
+}
+
+.nav-link {
+  color: #ffffff; /* White text color */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #17a2b8; /* Change color on hover */
+}
+
+/* Active link styles */
+.nav-item.active .nav-link {
+  color: #17a2b8; /* Active link color */
+}
+
+/* Sign out button styles */
+.p-button {
+  background-color: #dc3545; /* Danger color for sign out button */
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.p-button:hover {
+  background-color: #c82333; /* Darker shade on hover */
+}
