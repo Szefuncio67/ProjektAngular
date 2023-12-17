@@ -34,11 +34,10 @@ export class UserComponent implements OnInit {
           }
           )
         } else {
-          console.log('User not found');
         }
       },
       (error) => {
-        console.log('Error fetching user by email:', error);
+        console.error('Error fetching user by email:', error);
       }
     );
   }

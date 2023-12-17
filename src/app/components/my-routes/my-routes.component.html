@@ -1,7 +1,7 @@
 <!-- my-routes.component.html -->
-<div *ngIf="trasy.length > 0">
+<div *ngIf="trasy.length > 0" class="my-routes-container">
   <h2>Moje trasy</h2>
-  <input type="text" placeholder="Search routes..." (input)="updateSearchTerm($event)">
+  <input type="text" placeholder="Szukaj tras..." (input)="updateSearchTerm($event)" class="search-input">
   <ul>
     <li *ngFor="let trasa of trasy | filterRoutes: searchTerm" class="route-item">
       <!-- Display only name and description -->
@@ -13,7 +13,7 @@
       <div *ngIf="trasa.showDetails" class="route-details">
         <ul *ngIf="trasa.Atrakcje && trasa.Atrakcje.length > 0" class="attractions-list">
           <li *ngFor="let atrakcja of trasa.Atrakcje" class="attraction-item">
-            {{ atrakcja.nazwa }} - {{ atrakcja.wspolrzednaX }} - {{ atrakcja.wspolrzednaY }}
+            {{ atrakcja.nazwa }} - X: {{ atrakcja.wspolrzednaX  | number:'1.3-3' }}  - Y: {{ atrakcja.wspolrzednaY | number:'1.3-3' }}
           </li>
         </ul>
         <div *ngIf="!trasa.Atrakcje || trasa.Atrakcje.length === 0">
@@ -25,6 +25,7 @@
     </li>
   </ul>
 </div>
-<div *ngIf="trasy.length === 0">
-  <p>No routes available</p>
+
+<div *ngIf="trasy.length === 0" class="no-routes">
+  <p>Brak dostępnych tras</p>
 </div>

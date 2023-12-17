@@ -1,16 +1,26 @@
-/* about-me.component.css or your preferred stylesheet */
+/* about-me.component.css */
 
-/* Container styling */
+.about-me-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px; /* Zwiększenie wewnętrznego paddingu */
+  background-image: url('ścieżka/do/2o0v1tztexu11.webp'); /* Dodaj ścieżkę do swojego obrazka */
+  background-size: cover;
+  background-position: center;
+  color: #ffffff; /* Kolor tekstu dla kontrastu */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto; /* Zwiększenie zewnętrznego marginesu */
+  max-width: 800px; /* Zwiększenie maksymalnej szerokości */
+}
+
 .user-details {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin: 20px;
-    border-radius: 5px;
-  }
-  
-  /* Message styling */
-  .user-not-found {
-    color: #f00; /* Red color for the not found message */
-    margin: 20px;
-  }
-  
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.4); /* Dodatkowe tło dla sekcji informacji o użytkowniku */
+}
+/* Pozostałe style pozostają bez zmian */

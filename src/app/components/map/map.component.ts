@@ -74,7 +74,6 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   drawRoute() {
-    console.log("został uruchomiony drawRoute")
     if (this.directionsRenderer) {
       this.directionsRenderer.setMap(null);
     }
@@ -120,7 +119,6 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
           this.authService.routeLength = legs.reduce((total:number, leg:any) => total + leg.distance.value, 0) / 1000; // Convert to kilometers
         } else {
           console.error('Error calculating route:', status);
-          console.log(this.authService.points);
           //this.points.splice(this.points.length-1, 1);
           this.markers.splice(this.points.length-1, 1);
           this.authService.points.splice(this.points.length-1, 1);

@@ -1,57 +1,90 @@
-/* my-routes.component.css or your preferred stylesheet */
+/* my-routes.component.css */
+
+.my-routes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Centralizacja i marginesy */
+}
 
 /* Container styling */
 .route-item {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .route-item:hover {
-    background-color: #f5f5f5;
-  }
-  
-  /* Header styling */
-  .route-header {
-    font-size: 1.2em;
-  }
-  
-  /* Attractions styling */
-  .attractions-list {
-    list-style-type: none;
-    margin: 10px 0;
-    padding: 0;
-  }
-  
-  .attraction-item {
-    margin-bottom: 5px;
-  }
-  
-  /* Button styling */
-  .edit-button,
-  .remove-button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .edit-button:hover,
-  .remove-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-  }
-  
-  /* No routes or attractions styling */
-  p {
-    color: #777;
-    font-style: italic;
-    margin-top: 20px;
-  }
-  
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.route-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Header styling */
+.route-header {
+  font-size: 1.2em;
+}
+
+/* Attractions styling */
+.attractions-list {
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.attraction-item {
+  margin-bottom: 5px;
+}
+
+/* Button styling */
+.edit-button,
+.remove-button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover,
+.remove-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* No routes or attractions styling */
+.no-routes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.no-routes p {
+  color: #777;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+
+
+/* my-routes.component.css */
+
+/* Search input styling */
+.search-input {
+  margin: 10px 0;
+  padding: 12px; /* Zwiększenie rozmiaru paddingu */
+  font-size: 1em; /* Zmniejszenie rozmiaru czcionki */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: calc(100% - 24px); /* Rozszerzenie pola do wprowadzania tekstu na całą szerokość kontenera z uwzględnieniem paddingu */
+}

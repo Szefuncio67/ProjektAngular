@@ -143,9 +143,7 @@ export class AuthService {
     if(!this.edition){
     const allPoints = this.points.slice();
     const trasa = new Trasa(0,routeName,routeDescription, allPoints);
-    console.log(trasa);
     const email = sessionStorage.getItem('email') ?? '';
-    console.log(email);
     this.getUserByEmail(email).subscribe(
       response=>{
         this.setTrasainUser(response[0].id, trasa);
@@ -168,9 +166,6 @@ export class AuthService {
     this.legDurations = [];
     this.drawRoute();
 
-
-    // Dodaj wszystkie punkty do tablicy (np. możesz przekazać je do innego serwisu, komponentu, itp.)
-    //console.log('All points:', allPoints);
   }
 
   drawRoute() {
@@ -210,11 +205,9 @@ export class AuthService {
   
             resolve(nowyPunkt);
           } else {
-            console.log('Brak wyników geokodowania');
             reject('Brak wyników geokodowania');
           }
         } else {
-          console.error('Błąd geokodowania:', status);
           reject('Błąd geokodowania');
         }
       });
@@ -247,7 +240,6 @@ export class AuthService {
     this.routeDescription=trasa.Opis;
     this.edition = true;
     this.idTrasa = trasa.id;
-    console.log('Editing route:', trasa);
     this.drawRoute();
   }
 
@@ -261,7 +253,6 @@ export class AuthService {
 
       const allPoints = this.points.slice();
       const trasa = new Trasa(this.idTrasa,routeName,routeDescription, allPoints);
-      console.log(trasa);
       const email = sessionStorage.getItem('email') ?? '';
       this.getUserByEmail(email).subscribe(
         response=>{

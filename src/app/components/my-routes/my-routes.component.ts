@@ -40,7 +40,6 @@ export class MyRoutesComponent implements OnInit {
   
     this.authService.removeTrasaFromUser(trasaId).subscribe(
       () => {
-        console.log('Favorite route removed successfully');
       },
       error => {
         console.error('Error removing favorite route:', error);
@@ -59,7 +58,6 @@ export class MyRoutesComponent implements OnInit {
     this.router.navigateByUrl('').then(() => {
       // Perform the editRoute logic after the navigation is complete
       this.authService.editing(trasa);
-      console.log('Editing route:', trasa.Atrakcje);
     });
   }
   updateSearchTerm(event: any): void {

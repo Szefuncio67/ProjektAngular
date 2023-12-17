@@ -1,11 +1,10 @@
 <!-- about-me.component.html -->
-<div *ngIf="user | async as user; else userNotFound">
+<div *ngIf="user | async as user; else userNotFound" class="about-me-container">
   <div class="user-details">
-    <h2>User Details</h2>
-    <p>ID: {{ user.id }}</p>
-    <p>Name: {{ user.nazwa }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Liczba tras: {{ trasy.length }}</p>
+    <h2>O mnie</h2>
+    <p><strong>Nazwa:</strong> {{ user.nazwa }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Liczba tras:</strong> {{ trasy.length }}</p>
     <!-- Add other properties as needed -->
   </div>
 </div>

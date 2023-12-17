@@ -1,13 +1,14 @@
-<div>
-    <h2>Profil użytkownika</h2>
-    
-    <!-- Dodaj zakładki jako linki do komponentów -->
-    <ul>
-      <li><a routerLink="about-me">O mnie</a></li>
-      <li><a routerLink="my-routes">Moje trasy</a></li>
-    </ul>
+<div class="user-container">
+  <h2>Profil użytkownika</h2>
   
-    <!-- Dodaj router-outlet do dynamicznego ładowania komponentów -->
+  <!-- Dodaj zakładki jako linki do komponentów -->
+  <ul class="nav-links">
+    <li><a routerLink="about-me">O mnie</a></li>
+    <li><a routerLink="my-routes">Moje trasy</a></li>
+  </ul>
+
+  <!-- Dodaj router-outlet do dynamicznego ładowania komponentów -->
+  <div class="component-container">
     <router-outlet></router-outlet>
   </div>
-  
+</div>
