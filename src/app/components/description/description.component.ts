@@ -1,10 +1,11 @@
 // description.component.ts
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MapService } from '../services/map.service';
-import { Atrakcja } from '../interfaces/atrakcja';
+import { Component, EventEmitter, Input, Output, OnDestroy } from '@angular/core';
+import { Atrakcja } from '../../models/atrakcja';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-description',
@@ -20,12 +21,12 @@ export class DescriptionComponent {
     routeDescription: ['', [Validators.maxLength(200), Validators.required]],
   });
 
-  constructor(public mapService: MapService, private fb: FormBuilder) {}
+  constructor(public authService: AuthService, private fb: FormBuilder) {}
 
   ngOnInit() {
     // Sprawdź, czy aktualnie edytowana trasa jest ustawiona w serwisie
-    if (this.mapService.currentEditedRoute) {
-      const editedRoute = this.mapService.currentEditedRoute;
+    if (this.authService.currentEditedRoute && this.authService.edition) {
+      const editedRoute = this.authService.currentEditedRoute;
       
       // Ustaw dane edytowanej trasy w formularzu
       this.myForm.patchValue({
@@ -37,6 +38,22 @@ export class DescriptionComponent {
       this.nazwa = this.myForm.value.routeName|| '';
       this.nazwaChange.emit(this.nazwa);
     }
+    else{
+      this.myForm.patchValue({
+        routeName: '',
+        routeDescription: '',
+        
+
+      });
+      this.authService.routeLength=0;
+      this.authService.legDurations = [];
+    }
+  }
+
+  ngOnDestroy(): void {
+    // Perform cleanup operations here
+    // Unsubscribe from observables, clear intervals, release resources, etc.
+    this.myForm.reset();
   }
 
   isFormValid() {
@@ -45,13 +62,13 @@ export class DescriptionComponent {
 
   addAddressInput() {
     const newPoint = new Atrakcja(0, '', 0, 0);
-    this.mapService.points.push(newPoint);
+    this.authService.points.push(newPoint);
 
-    this.mapService
+    this.authService
       .convertCoordinatesToAddress(newPoint.wspolrzednaX, newPoint.wspolrzednaY)
       .then((updatedPoint: Atrakcja) => {
         newPoint.nazwa = updatedPoint.nazwa;
-        this.mapService.drawRoute();
+        this.authService.drawRoute();
       })
       .catch((error: any) => {
         console.error('Error converting coordinates to address:', error);
@@ -59,39 +76,39 @@ export class DescriptionComponent {
   }
 
   removeAddressInput(index: number) {
-    this.mapService.points.splice(index, 1);
-    this.mapService.drawRoute();
+    this.authService.points.splice(index, 1);
+    this.authService.drawRoute();
   }
 
   get points() {
-    return this.mapService.points;
+    return this.authService.points;
   }
 
   onMarkerClick(index: number) {
-    this.mapService.points.splice(index, 1);
-    this.mapService.onMarkerClick(index);
+    this.authService.points.splice(index, 1);
+    this.authService.onMarkerClick(index);
   }
 
   addAllPoints() {
     if (this.isFormValid()) {
-      this.mapService.addAllPoints(
+      this.authService.addAllPoints(
         this.myForm.value.routeName || '',
         this.myForm.value.routeDescription || ''
       );
-      this.mapService.drawRoute();
+      this.authService.drawRoute();
     }
     this.myForm.reset();
   }
 
   updateCoordinatesOnNameChange(index: number) {
-    const point = this.mapService.points[index];
+    const point = this.authService.points[index];
 
-    this.mapService
-      .convertAddressToCoordinates(this.mapService.points[index].nazwa)
+    this.authService
+      .convertAddressToCoordinates(this.authService.points[index].nazwa)
       .then((coordinates: any) => {
-        this.mapService.points[index].wspolrzednaX = coordinates.latitude;
-        this.mapService.points[index].wspolrzednaY = coordinates.longitude;
-        this.mapService.drawRoute();
+        this.authService.points[index].wspolrzednaX = coordinates.latitude;
+        this.authService.points[index].wspolrzednaY = coordinates.longitude;
+        this.authService.drawRoute();
       })
       .catch((error: any) => {
         console.error('Błąd przekształcania nazwy na współrzędne:', error);
@@ -101,7 +118,7 @@ export class DescriptionComponent {
   drop(event: CdkDragDrop<Atrakcja>) {
     if (event.previousIndex != null && event.currentIndex != null) {
       moveItemInArray(this.points, event.previousIndex, event.currentIndex);
-      this.mapService.drawRoute();
+      this.authService.drawRoute();
     }
   }
 
@@ -112,7 +129,7 @@ export class DescriptionComponent {
 
   SaveEdition() {
     if (this.isFormValid()) {
-      this.mapService.saveEdition(
+      this.authService.saveEdition(
         this.myForm.value.routeName || '',
         this.myForm.value.routeDescription || ''
       );
@@ -123,7 +140,7 @@ export class DescriptionComponent {
   }
 
   Cancel() {
-    this.mapService.addAllPoints(
+    this.authService.addAllPoints(
       this.myForm.value.routeName || '',
       this.myForm.value.routeDescription || ''
     );

@@ -1,9 +1,9 @@
 // about-me.component.ts
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { Observable } from 'rxjs';
-import { User } from '../interfaces/user';
-import { Trasa } from '../interfaces/trasa';
+import { User } from '../../models/user';
+import { Trasa } from '../../models/trasa';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-about-me',
@@ -13,13 +13,13 @@ import { Trasa } from '../interfaces/trasa';
 // about-me.component.ts
 // about-me.component.ts
 export class AboutMeComponent implements OnInit {
-  user: Observable<User | null> = this.userService.getUser();
+  user: Observable<User | null> = this.authService.getUser();
   trasy: Trasa[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.userService.getTrasa().subscribe((trasy: Trasa[] | null) => {
+    this.authService.getTrasa().subscribe((trasy: Trasa[] | null) => {
       if (trasy !== null) {
         this.trasy = trasy;
       }

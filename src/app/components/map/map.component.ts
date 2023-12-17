@@ -1,10 +1,11 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
-import { MapService } from '../services/map.service';
+
 import { Subscription } from 'rxjs';
 import { OnDestroy } from '@angular/core';
-import { Atrakcja } from '../interfaces/atrakcja';
+import { Atrakcja } from '../../models/atrakcja';
+import { AuthService } from '../../services/auth.service';
 
 
 declare var google: any;
@@ -19,7 +20,7 @@ declare var google: any;
 })
 export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
   private markerClickSubscription: Subscription = new Subscription();
-  constructor(private mapService: MapService) {}
+  constructor(private authService: AuthService) {}
   ngOnInit(): void {
     this.initMap();
   }
@@ -35,10 +36,10 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
   ngAfterViewInit() {
     this.initMap();
 
-    this.markerClickSubscription = this.mapService.markerClickSubject.subscribe((index: number) => {
+    this.markerClickSubscription = this.authService.markerClickSubject.subscribe((index: number) => {
       this.onMarkerClick(index);
     });
-    this.mapService.mapComponentDrawRouteSubject.subscribe(() => {
+    this.authService.mapComponentDrawRouteSubject.subscribe(() => {
       //this.directionsRenderer.setMap(null);
       this.drawRoute();
   });
@@ -48,10 +49,10 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
     // Zakończ subskrypcję w momencie zniszczenia komponentu
     this.markerClickSubscription.unsubscribe();
     // Wyczyszczenie listy punktów przy zniszczeniu komponentu
-    this.mapService.points = [];
-    this.mapService.routeName = '';
-    this.mapService.routeDescription ='';
-    this.mapService.edition = false;
+    this.authService.points = [];
+    this.authService.routeName = '';
+    this.authService.routeDescription ='';
+    this.authService.edition = false;
     
   }
 
@@ -83,14 +84,14 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
     preserveViewport: true, // Dodaj tę opcję, aby zachować bieżący widok mapy
   });
     this.directionsRenderer.setMap(this.map);
-    if(this.mapService.points[0]){
-      const start = new google.maps.LatLng(this.mapService.points[0].wspolrzednaX, this.mapService.points[0].wspolrzednaY);
-      const end = new google.maps.LatLng(this.mapService.points[this.mapService.points.length - 1].wspolrzednaX, this.mapService.points[this.mapService.points.length - 1].wspolrzednaY);
+    if(this.authService.points[0]){
+      const start = new google.maps.LatLng(this.authService.points[0].wspolrzednaX, this.authService.points[0].wspolrzednaY);
+      const end = new google.maps.LatLng(this.authService.points[this.authService.points.length - 1].wspolrzednaX, this.authService.points[this.authService.points.length - 1].wspolrzednaY);
       const waypoint: google.maps.DirectionsWaypoint[] = [];
 
-      for (let i = 1; i < this.mapService.points.length - 1; i++) {
+      for (let i = 1; i < this.authService.points.length - 1; i++) {
         waypoint.push({
-          location: new google.maps.LatLng(this.mapService.points[i].wspolrzednaX, this.mapService.points[i].wspolrzednaY),
+          location: new google.maps.LatLng(this.authService.points[i].wspolrzednaX, this.authService.points[i].wspolrzednaY),
           stopover: true,
         });
       }
@@ -106,7 +107,7 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
         if (status === 'OK') {
           this.directionsRenderer.setDirections(response);
           const legs = response.routes[0].legs;
-          this.mapService.legDurations = legs.map((leg: any) => {
+          this.authService.legDurations = legs.map((leg: any) => {
             const legDurationSeconds = leg.duration.value;
             
             // Konwertuj sekundy na format hh:mm:ss
@@ -116,13 +117,13 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
     
             return `${hours} godz. ${minutes} min. ${seconds} sek.`;
           });
-          this.mapService.routeLength = legs.reduce((total:number, leg:any) => total + leg.distance.value, 0) / 1000; // Convert to kilometers
+          this.authService.routeLength = legs.reduce((total:number, leg:any) => total + leg.distance.value, 0) / 1000; // Convert to kilometers
         } else {
           console.error('Error calculating route:', status);
-          console.log(this.mapService.points);
+          console.log(this.authService.points);
           //this.points.splice(this.points.length-1, 1);
           this.markers.splice(this.points.length-1, 1);
-          this.mapService.points.splice(this.points.length-1, 1);
+          this.authService.points.splice(this.points.length-1, 1);
           this.drawRoute();
         }
       });
@@ -130,10 +131,10 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   onMapClick(event: any) {
-    this.mapService.convertCoordinatesToAddress(event.latLng.lat(), event.latLng.lng())
+    this.authService.convertCoordinatesToAddress(event.latLng.lat(), event.latLng.lng())
       .then((newPoint: Atrakcja) => {
         // Add the new point to the map service
-        this.mapService.points.push(newPoint);
+        this.authService.points.push(newPoint);
   
         // Redraw the route
         this.drawRoute();

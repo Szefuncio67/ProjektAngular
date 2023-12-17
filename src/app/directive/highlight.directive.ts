@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]'
@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 export class HighlightDirective {
   @Input() appHighlight: { current: number | undefined; next: number | undefined } = { current: undefined, next: undefined };
 
-  constructor(private el: ElementRef) {}
+  constructor() {}
 
   @HostListener('mouseenter') onMouseEnter() {
     this.highlight(true);

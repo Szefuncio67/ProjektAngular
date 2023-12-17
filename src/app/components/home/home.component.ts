@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MapService } from 'src/app/services/map.service';
 
 
 
@@ -11,6 +10,6 @@ import { MapService } from 'src/app/services/map.service';
 })
 export class HomeComponent {
   RNazwa: string = 'Twoja nazwa trasy';
-  constructor(public mapService: MapService) {}
+  constructor() {}
   
 }

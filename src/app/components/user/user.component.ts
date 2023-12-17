@@ -1,9 +1,8 @@
 // user.component.ts
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { User } from '../interfaces/user';
-import { UserService } from '../services/user.service';
-import { Trasa } from '../interfaces/trasa';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
+import { Trasa } from '../../models/trasa';
 
 @Component({
   selector: 'app-user',
@@ -13,7 +12,6 @@ import { Trasa } from '../interfaces/trasa';
 export class UserComponent implements OnInit {
   constructor(
     private authService: AuthService,
-    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -26,12 +24,12 @@ export class UserComponent implements OnInit {
       (users: User[]) => {
         if (users.length > 0) {
           const user = users[0];
-          this.userService.setUser(user);
+          this.authService.setUser(user);
           this.authService.getTrasaById(users[0].id).subscribe(
             (trasy: Trasa[]) =>{
               if (trasy.length > 0) {
                 const tras = trasy;
-                this.userService.setTrasa(tras);
+                this.authService.setTrasa(tras);
             }
           }
           )

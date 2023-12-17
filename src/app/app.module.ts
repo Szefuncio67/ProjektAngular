@@ -14,20 +14,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageService } from 'primeng/api';
-import { MapComponent } from './map/map.component';
+import { MapComponent } from './components/map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
-import { DescriptionComponent } from './description/description.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { DescriptionComponent } from './components/description/description.component';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { UserComponent } from './user/user.component';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { MyRoutesComponent } from './my-routes/my-routes.component';
-import { FavoriteRoutesComponent } from './favorite-routes/favorite-routes.component';
-import { HighlightDirective } from './highlight.directive';
-import { MapService } from './services/map.service';
+import { UserComponent } from './components/user/user.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { MyRoutesComponent } from './components/my-routes/my-routes.component';
+import { HighlightDirective } from './directive/highlight.directive';
 import { AuthService } from './services/auth.service';
+import { FilterRoutesPipe } from './filter/filter-routes.pipe';
 
 @NgModule({
     declarations: [
@@ -40,10 +39,10 @@ import { AuthService } from './services/auth.service';
         UserComponent,
         AboutMeComponent,
         MyRoutesComponent,
-        FavoriteRoutesComponent,
         HighlightDirective,
+        FilterRoutesPipe,
     ],
-    providers: [MessageService, MapService, AuthService],
+    providers: [MessageService, AuthService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

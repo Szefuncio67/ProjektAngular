@@ -53,32 +53,32 @@
   <!-- Add this under the route description input -->
   <div>
     <label for="routeLength">Długość Trasy (km):</label>
-    <span>{{ this.mapService.routeLength }}</span>
+    <span>{{ this.authService.routeLength }}</span>
   </div>
 
-  <div *ngFor="let legDuration of this.mapService.legDurations; let i = index" [appHighlight]="{ current: i, next: i + 1 }">
+  <div *ngFor="let legDuration of this.authService.legDurations; let i = index" [appHighlight]="{ current: i, next: i + 1 }">
     <label for="legDuration{{ i }}">Czas podróży między punktem {{ i + 1 }} a punktem {{ i + 2 }}:</label>
     <span>{{ legDuration }}</span>
   </div>
 
   <div>
     <button
-      *ngIf="!this.mapService.edition"
+      *ngIf="!this.authService.edition"
       (click)="addAllPoints()"
-      [disabled]="!myForm.valid || this.mapService.points.length == 0"
+      [disabled]="!myForm.valid || this.authService.points.length == 0"
       class="add-button"
     >
       Zapisz Trase
     </button>
     <button
-      *ngIf="this.mapService.edition"
+      *ngIf="this.authService.edition"
       (click)="SaveEdition()"
-      [disabled]="!myForm.valid || this.mapService.points.length == 0"
+      [disabled]="!myForm.valid || this.authService.points.length == 0"
       class="add-button"
     >
       Zapisz Edycje
     </button>
-    <button *ngIf="this.mapService.edition" (click)="Cancel()" class="add-button">Anuluj</button>
+    <button *ngIf="this.authService.edition" (click)="Cancel()" class="add-button">Anuluj</button>
     <button (click)="addAddressInput()" class="add-button">Dodaj Punkt</button>
   </div>
 </form>
