@@ -420,6 +420,50 @@
       ],
       "user_id": "1",
       "id": 15
+    },
+    {
+      "Nazwa": "xdddd",
+      "Opis": "xddd",
+      "Atrakcje": [
+        {
+          "idAtrakcja": 0,
+          "nazwa": "Весёлый У́гол, Białoruś",
+          "wspolrzednaX": 53.563193048791575,
+          "wspolrzednaY": 27.1763707875
+        },
+        {
+          "idAtrakcja": 1,
+          "nazwa": "Hamr na Jezeře, Czechy 471 28",
+          "wspolrzednaX": 50.70519974969462,
+          "wspolrzednaY": 14.871683287500002
+        },
+        {
+          "idAtrakcja": 2,
+          "nazwa": "1 András utca Győrújbarát, Węgry 9081",
+          "wspolrzednaX": 47.60250625012391,
+          "wspolrzednaY": 17.640237975
+        },
+        {
+          "idAtrakcja": 3,
+          "nazwa": "Biszcza, Polska 23-425",
+          "wspolrzednaX": 50.3980582214407,
+          "wspolrzednaY": 22.6500036
+        },
+        {
+          "idAtrakcja": 4,
+          "nazwa": "Ammerbuch, Niemcy 72119",
+          "wspolrzednaX": 48.57120135158887,
+          "wspolrzednaY": 9.026956725000002
+        },
+        {
+          "idAtrakcja": 0,
+          "nazwa": "Warszawa",
+          "wspolrzednaX": 52.2296756,
+          "wspolrzednaY": 21.0122287
+        }
+      ],
+      "user_id": "1",
+      "id": 16
     }
   ]
 }

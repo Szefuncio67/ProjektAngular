@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
  
 })
 export class HomeComponent {
-  RNazwa: string = 'Twoja nazwa trasy';
+  RNazwa: string = 'Nazwa trasy';
   constructor() {}
   
 }

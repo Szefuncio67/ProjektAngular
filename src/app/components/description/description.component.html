@@ -2,7 +2,7 @@
 
 <form [formGroup]="myForm" >
   <div>
-    <label for="routeName">Nazwa Trasy:</label>
+    <label for="routeName" class="routeName">Nazwa Trasy:</label>
     <input
       (ngModel)="nazwa"
       type="text"
@@ -40,7 +40,7 @@
   </div>
 
   <div>
-    <label for="routeDescription">Opis Trasy:</label>
+    <label for="routeDescription" class="routeDescription">Opis Trasy:</label>
     <textarea
       id="routeDescription"
       formControlName="routeDescription"
@@ -52,13 +52,13 @@
   </div>
   <!-- Add this under the route description input -->
   <div>
-    <label for="routeLength">Długość Trasy (km):</label>
+    <label for="routeLength" class="lenghtRoute">Długość Trasy (km):</label>
     <span>{{ this.authService.routeLength }}</span>
   </div>
 
-  <div *ngFor="let legDuration of this.authService.legDurations; let i = index" [appHighlight]="{ current: i, next: i + 1 }">
+  <div *ngFor="let legDuration of this.authService.legDurations; let i = index" class="appHighlightx" [appHighlight]="{ current: i, next: i + 1 }">
     <label for="legDuration{{ i }}">Czas podróży między punktem {{ i + 1 }} a punktem {{ i + 2 }}:</label>
-    <span>{{ legDuration }}</span>
+    <p>{{ legDuration }}</p>
   </div>
 
   <div>
