@@ -77,7 +77,7 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
 
     this.directionsService = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer({
-    preserveViewport: true, // Dodaj tę opcję, aby zachować bieżący widok mapy
+    preserveViewport: true,
   });
     this.directionsRenderer.setMap(this.map);
     if(this.authService.points[0]){

@@ -16,7 +16,7 @@ export class DescriptionComponent {
 
   @Input() nazwa: string = '';
   @Output() nazwaChange = new EventEmitter<string>();
-  myForm = this.fb.group({
+  myForm: FormGroup = this.fb.group({
     routeName: ['', [Validators.required, Validators.maxLength(30)]],
     routeDescription: ['', [Validators.maxLength(200), Validators.required]],
   });

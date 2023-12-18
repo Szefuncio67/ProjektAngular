@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const email = sessionStorage.getItem('email') || '';
+    const email:string = sessionStorage.getItem('email') || '';
     this.getUserByEmail(email);
   }
 
@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
           this.authService.getTrasaById(users[0].id).subscribe(
             (trasy: Trasa[]) =>{
               if (trasy.length > 0) {
-                const tras = trasy;
+                const tras:Trasa[] = trasy;
                 this.authService.setTrasa(tras);
             }
           }
